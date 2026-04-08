@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Growth Services for Local Businesses | RivalDrop</title>
+<meta name="description" content="SEO, competitor research, and marketing strategy for small businesses in Kansas City. Monthly plans starting at $149/mo. Powered by AI, delivered by humans.">
+<meta property="og:title" content="RivalDrop — Digital Growth for Local Businesses">
+<meta property="og:description" content="SEO, competitor research, and marketing strategy. Know what your competitors are doing. Know what to do about it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4CA;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0B1426;
+  --navy-mid:#1E2D4A;
+  --blue:#2563EB;
+  --blue-light:#DBEAFE;
+  --blue-pale:#EFF6FF;
+  --blue-glow:rgba(37,99,235,.08);
+  --orange:#F97316;
+  --orange-pale:rgba(249,115,22,.1);
+  --green:#10B981;
+  --green-pale:#D1FAE5;
+  --gray-50:#F8FAFC;
+  --gray-100:#F1F5F9;
+  --gray-200:#E2E8F0;
+  --gray-300:#CBD5E1;
+  --gray-400:#94A3B8;
+  --gray-500:#64748B;
+  --gray-600:#475569;
+  --gray-700:#334155;
+  --gray-900:#0F172A;
+  --white:#FFFFFF;
+  --text:#0B1426;
+  --text-muted:#64748B;
+  --border:rgba(11,20,38,.08);
+  --border-med:rgba(11,20,38,.12);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.1),0 4px 12px rgba(0,0,0,.06);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.nav-logo{font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;letter-spacing:-0.5px;color:var(--navy)}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:28px;font-size:.9rem;font-weight:500;color:var(--gray-600)}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:var(--white);padding:10px 20px;border-radius:8px;font-size:.875rem;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--navy-mid)}
+
+/* ── HERO ── */
+.hero{max-width:820px;margin:0 auto;padding:80px 24px 60px;text-align:center}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue-pale);border:1px solid var(--blue-light);
+  color:var(--blue);font-size:.78rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;margin-bottom:24px;
+}
+.hero h1{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2.4rem,5vw,3.6rem);
+  line-height:1.1;color:var(--navy);margin-bottom:20px;
+}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:600px;margin:0 auto 12px;line-height:1.7}
+.hero-note{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--orange);margin-top:20px}
+
+/* ── PLANS ── */
+.plans-section{padding:60px 24px 80px;background:var(--gray-50)}
+.plans-section .section-title{text-align:center;margin-bottom:48px}
+.plans-section .section-title h2{font-family:'Instrument Serif',serif;font-size:2.2rem;color:var(--navy);margin-bottom:8px}
+.plans-section .section-title p{font-size:.95rem;color:var(--text-muted)}
+
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1060px;margin:0 auto}
+
+.plan{
+  background:var(--white);
+  border:1px solid var(--border-med);
+  border-radius:16px;
+  padding:36px 28px;
+  display:flex;flex-direction:column;
+  position:relative;
+  transition:border-color .2s,box-shadow .2s;
+}
+.plan:hover{border-color:var(--blue-light);box-shadow:var(--shadow-md)}
+.plan.featured{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),var(--shadow-md)}
+
+.plan-badge{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:var(--white);
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 14px;border-radius:999px;
+}
+
+.plan-icon{font-size:2rem;margin-bottom:12px}
+.plan-name{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.plan-tagline{font-size:.85rem;color:var(--text-muted);margin-bottom:20px;line-height:1.5}
+
+.plan-price{margin-bottom:4px}
+.plan-price .amt{font-family:'Instrument Serif',serif;font-size:3rem;color:var(--navy);line-height:1}
+.plan-price .per{font-size:.9rem;color:var(--text-muted);margin-left:2px}
+.plan-save{font-family:'Space Mono',monospace;font-size:.72rem;color:var(--green);margin-bottom:20px}
+.plan-divider{border:none;border-top:1px solid var(--border);margin:0 0 20px}
+
+.plan-features{list-style:none;flex:1;margin-bottom:28px}
+.plan-features li{font-size:.88rem;color:var(--gray-600);padding:5px 0 5px 22px;position:relative;line-height:1.5}
+.plan-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:.85rem}
+.plan-features li.highlight{color:var(--navy);font-weight:600}
+.plan-features li.not-included{opacity:.4}
+.plan-features li.not-included::before{content:'—';color:var(--gray-400)}
+
+.plan-btn{
+  display:block;text-align:center;
+  padding:14px 20px;border-radius:10px;
+  font-size:.88rem;font-weight:600;
+  transition:all .2s;
+}
+.plan-btn-primary{background:var(--navy);color:var(--white)}
+.plan-btn-primary:hover{background:var(--navy-mid)}
+.plan-btn-secondary{border:1px solid var(--border-med);color:var(--gray-700)}
+.plan-btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── WHAT'S INCLUDED ── */
+.details-section{padding:80px 24px;max-width:1060px;margin:0 auto}
+.details-section h2{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--navy);text-align:center;margin-bottom:48px}
+
+.detail-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:64px;align-items:center}
+.detail-row.reverse{direction:rtl}
+.detail-row.reverse > *{direction:ltr}
+
+.detail-text h3{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.detail-text .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.detail-text p{font-size:.92rem;color:var(--text-muted);line-height:1.7;margin-bottom:16px}
+.detail-list{list-style:none}
+.detail-list li{font-size:.88rem;color:var(--gray-600);padding:4px 0 4px 20px;position:relative}
+.detail-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:700}
+
+.detail-card{
+  background:var(--gray-50);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:36px;
+}
+.detail-card-label{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
+.detail-card-items{display:flex;flex-direction:column;gap:12px}
+.detail-card-item{display:flex;gap:12px;align-items:flex-start}
+.detail-card-item .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.detail-card-item .text{font-size:.88rem;color:var(--gray-700);line-height:1.5}
+.detail-card-item .text strong{color:var(--navy)}
+
+/* ── COMPARISON ── */
+.compare-section{padding:80px 24px;background:var(--navy)}
+.compare-section h2{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--white);text-align:center;margin-bottom:8px}
+.compare-section .sub{font-size:.95rem;color:var(--gray-400);text-align:center;margin-bottom:48px}
+
+.compare-table{max-width:700px;margin:0 auto;width:100%;border-collapse:collapse}
+.compare-table th{
+  font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue-light);text-align:left;padding:12px 16px;
+  border-bottom:2px solid var(--blue);
+}
+.compare-table th:not(:first-child){text-align:center}
+.compare-table td{font-size:.88rem;color:var(--gray-400);padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.compare-table td:not(:first-child){text-align:center}
+.compare-table tr:hover td{color:var(--gray-200)}
+.compare-table .yes{color:var(--green);font-weight:700}
+.compare-table .no{color:var(--gray-600)}
+.compare-table .hl{background:rgba(37,99,235,.06)}
+
+/* ── HOW IT WORKS ── */
+.how-section{padding:80px 24px}
+.how-section h2{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--navy);text-align:center;margin-bottom:48px}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1060px;margin:0 auto}
+.how-step{text-align:center;padding:24px 16px}
+.how-step-num{font-family:'Instrument Serif',serif;font-size:2.8rem;color:var(--blue);line-height:1;margin-bottom:12px}
+.how-step-title{font-family:'Space Mono',monospace;font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.how-step-desc{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+/* ── FAQ ── */
+.faq-section{padding:80px 24px;background:var(--gray-50)}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--navy);text-align:center;margin-bottom:48px}
+.faq-grid{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border-med);padding:20px 0}
+.faq-q{font-size:.95rem;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-family:'Space Mono',monospace;font-size:1.2rem;color:var(--blue);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:.88rem;color:var(--text-muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s}
+.faq-item.open .faq-a{max-height:300px;padding-top:12px}
+
+/* ── CTA ── */
+.cta-section{padding:100px 24px;text-align:center}
+.cta-section h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4vw,2.8rem);color:var(--navy);margin-bottom:12px}
+.cta-section h2 em{font-style:italic;color:var(--blue)}
+.cta-section p{font-size:1rem;color:var(--text-muted);max-width:480px;margin:0 auto 28px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--navy);color:var(--white);padding:14px 32px;border-radius:10px;font-size:.88rem;font-weight:600;transition:background .2s}
+.btn-primary:hover{background:var(--navy-mid)}
+.btn-outline{border:1px solid var(--border-med);color:var(--gray-700);padding:14px 32px;border-radius:10px;font-size:.88rem;font-weight:600;transition:all .2s}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── FOOTER ── */
+footer{padding:24px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--text-muted)}
+footer a{color:var(--gray-500);transition:color .2s}
+footer a:hover{color:var(--blue)}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 16px}
+  .nav-links{gap:16px}
+  .plans-grid{grid-template-columns:1fr;max-width:420px}
+  .detail-row,.detail-row.reverse{grid-template-columns:1fr;direction:ltr}
+  .how-steps{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:600px){
+  .nav-links .hide-m{display:none}
+  .how-steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Rival<span>Drop</span></a>
+  <div class="nav-links">
+    <a href="/" class="hide-m">Home</a>
+    <a href="#plans">Plans</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">🎯 For Local Businesses</div>
+  <h1>SEO, Competitor Intel &amp; Marketing Strategy — <em>Actually Affordable</em></h1>
+  <p class="hero-sub">Most agencies charge $1,500–$5,000/month for SEO alone. We use AI-powered research and human strategy to deliver real results at a fraction of the cost.</p>
+  <p class="hero-note">Web design clients from SimonPaige.com save 20%</p>
+</section>
+
+<!-- PLANS -->
+<section class="plans-section" id="plans">
+  <div class="section-title">
+    <h2>Choose Your Growth Plan</h2>
+    <p>Month-to-month. Cancel anytime. No contracts, no setup fees.</p>
+  </div>
+  <div class="plans-grid">
+
+    <!-- LOCAL SEO -->
+    <div class="plan fade-in">
+      <div class="plan-icon">📍</div>
+      <div class="plan-name">Local SEO</div>
+      <div class="plan-tagline">Get found when customers search. Rank higher on Google, Maps, and AI answers.</div>
+      <div class="plan-price">
+        <span class="amt">$149</span><span class="per">/mo</span>
+      </div>
+      <div class="plan-save">Web design clients: $119/mo</div>
+      <hr class="plan-divider">
+      <ul class="plan-features">
+        <li class="highlight">Google Business Profile optimization</li>
+        <li>Monthly keyword ranking report</li>
+        <li>On-page SEO audit &amp; fixes</li>
+        <li>Local citation building (10/mo)</li>
+        <li>Google review monitoring</li>
+        <li>Competitor keyword tracking (3 competitors)</li>
+        <li>Monthly performance summary email</li>
+        <li class="not-included">Competitor intelligence reports</li>
+        <li class="not-included">Strategy calls</li>
+        <li class="not-included">Marketing recommendations</li>
+      </ul>
+      <a href="#contact" class="plan-btn plan-btn-secondary">Get Started →</a>
+    </div>
+
+    <!-- COMPETITOR INTEL -->
+    <div class="plan featured fade-in">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-icon">🔍</div>
+      <div class="plan-name">Competitor Intel</div>
+      <div class="plan-tagline">Know what your competitors charge, how they advertise, and where they rank — before they outpace you.</div>
+      <div class="plan-price">
+        <span class="amt">$249</span><span class="per">/mo</span>
+      </div>
+      <div class="plan-save">Web design clients: $199/mo</div>
+      <hr class="plan-divider">
+      <ul class="plan-features">
+        <li class="highlight">Everything in Local SEO</li>
+        <li class="highlight">Monthly competitor intelligence report</li>
+        <li>Competitor pricing tracking (up to 5)</li>
+        <li>Ad &amp; creative monitoring</li>
+        <li>Market positioning analysis</li>
+        <li>Product/service launch alerts</li>
+        <li>SEO gap analysis vs. competitors</li>
+        <li>Actionable recommendations</li>
+        <li class="not-included">Strategy calls</li>
+        <li class="not-included">Content &amp; marketing plan</li>
+      </ul>
+      <a href="#contact" class="plan-btn plan-btn-primary">Get Started →</a>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="plan fade-in">
+      <div class="plan-icon">🚀</div>
+      <div class="plan-name">Growth Package</div>
+      <div class="plan-tagline">Full-service digital growth partner. SEO, intel, strategy, and a human who knows your business.</div>
+      <div class="plan-price">
+        <span class="amt">$399</span><span class="per">/mo</span>
+      </div>
+      <div class="plan-save">Web design clients: $319/mo</div>
+      <hr class="plan-divider">
+      <ul class="plan-features">
+        <li class="highlight">Everything in Competitor Intel</li>
+        <li class="highlight">Monthly 30-min strategy call</li>
+        <li class="highlight">Custom marketing recommendations</li>
+        <li>Content calendar &amp; topic planning</li>
+        <li>Social media strategy guidance</li>
+        <li>Ad campaign recommendations</li>
+        <li>Quarterly business review</li>
+        <li>Priority support (same-day response)</li>
+        <li>Up to 10 competitors tracked</li>
+        <li>Custom report dashboard</li>
+      </ul>
+      <a href="#contact" class="plan-btn plan-btn-secondary">Get Started →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED DETAILS -->
+<section class="details-section">
+  <h2>What You Actually Get</h2>
+
+  <!-- SEO -->
+  <div class="detail-row fade-in">
+    <div class="detail-text">
+      <div class="eyebrow">📍 Local SEO</div>
+      <h3>Rank Where It Matters</h3>
+      <p>When someone in your area searches "produce near me" or "best barbershop in Waldo," you need to be the answer — not buried on page 3. We optimize your entire local presence.</p>
+      <ul class="detail-list">
+        <li>Google Business Profile fully optimized and maintained</li>
+        <li>Keyword tracking — know exactly where you rank and where to improve</li>
+        <li>Citation building across 40+ directories (Yelp, YP, Apple Maps, etc.)</li>
+        <li>On-page SEO improvements — title tags, meta descriptions, schema markup</li>
+        <li>Monthly report with plain-English explanations, not jargon</li>
+      </ul>
+    </div>
+    <div class="detail-card">
+      <div class="detail-card-label">Sample monthly report includes</div>
+      <div class="detail-card-items">
+        <div class="detail-card-item"><div class="icon">📊</div><div class="text"><strong>Keyword Rankings:</strong> 15 target keywords tracked, 8 on page 1 (+3 from last month)</div></div>
+        <div class="detail-card-item"><div class="icon">🗺️</div><div class="text"><strong>Google Maps:</strong> Appearing in 3-pack for "fresh produce Kansas City"</div></div>
+        <div class="detail-card-item"><div class="icon">⭐</div><div class="text"><strong>Reviews:</strong> 4 new reviews (avg 4.8★), 2 responded to</div></div>
+        <div class="detail-card-item"><div class="icon">🔗</div><div class="text"><strong>Citations:</strong> 10 new directory listings built this month</div></div>
+        <div class="detail-card-item"><div class="icon">📈</div><div class="text"><strong>Traffic:</strong> +23% organic visits vs. last month</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETITOR INTEL -->
+  <div class="detail-row reverse fade-in">
+    <div class="detail-text">
+      <div class="eyebrow">🔍 Competitor Intelligence</div>
+      <h3>Know What They're Doing Before They Outpace You</h3>
+      <p>Every month your competitors make moves — price changes, new ads, Google ranking shifts. Most business owners find out weeks late. You'll know first.</p>
+      <ul class="detail-list">
+        <li>Track up to 5 competitors' pricing, ads, and online presence</li>
+        <li>See their Google rankings vs. yours on the same keywords</li>
+        <li>Monitor their ad campaigns and creative angles</li>
+        <li>Get alerts when they launch new products or services</li>
+        <li>Actionable "do this next" recommendations in every report</li>
+      </ul>
+    </div>
+    <div class="detail-card">
+      <div class="detail-card-label">Sample competitor insight</div>
+      <div class="detail-card-items">
+        <div class="detail-card-item"><div class="icon">💰</div><div class="text"><strong>Price Alert:</strong> "Competitor A dropped their combo meal from $12.99 to $9.99. Consider matching or bundling differently."</div></div>
+        <div class="detail-card-item"><div class="icon">📣</div><div class="text"><strong>Ad Watch:</strong> "Competitor B running Facebook ads with 'Free Delivery' angle — getting 3x engagement vs. last month."</div></div>
+        <div class="detail-card-item"><div class="icon">🏆</div><div class="text"><strong>Ranking Gap:</strong> "You rank #7 for 'Waldo restaurant' — Competitor C is #2. Here's what they're doing differently."</div></div>
+        <div class="detail-card-item"><div class="icon">🆕</div><div class="text"><strong>New Launch:</strong> "Competitor A added catering services to their site. Opportunity or threat? Here's our take."</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROWTH -->
+  <div class="detail-row fade-in">
+    <div class="detail-text">
+      <div class="eyebrow">🚀 Growth Strategy</div>
+      <h3>A Growth Partner, Not Just Reports</h3>
+      <p>Reports are useful. But what separates the Growth Package is having someone who actually knows your business, your market, and your goals — and tells you exactly what to do next.</p>
+      <ul class="detail-list">
+        <li>Monthly 30-minute strategy call — real conversation, not a sales pitch</li>
+        <li>Custom marketing recommendations tailored to your budget</li>
+        <li>Content calendar — what to post, when, and why</li>
+        <li>Ad campaign guidance — where to spend, what to test</li>
+        <li>Quarterly deep-dive business review with trend analysis</li>
+      </ul>
+    </div>
+    <div class="detail-card">
+      <div class="detail-card-label">What a strategy call looks like</div>
+      <div class="detail-card-items">
+        <div class="detail-card-item"><div class="icon">📋</div><div class="text"><strong>Review:</strong> Walk through this month's SEO + competitor data together</div></div>
+        <div class="detail-card-item"><div class="icon">🎯</div><div class="text"><strong>Priorities:</strong> "Focus on Google reviews this month — you need 10 more to pass Competitor B"</div></div>
+        <div class="detail-card-item"><div class="icon">📱</div><div class="text"><strong>Content:</strong> "Post these 3 things on Instagram this week — here's why they'll work"</div></div>
+        <div class="detail-card-item"><div class="icon">💡</div><div class="text"><strong>Opportunity:</strong> "Competitor A doesn't offer delivery. If you add it, you'd own that keyword."</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare-section">
+  <h2>The Math Is Simple</h2>
+  <p class="sub">What agencies charge vs. what you'll pay. Same work, fraction of the cost.</p>
+  <table class="compare-table fade-in">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Typical Agency</th>
+        <th class="hl">RivalDrop</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Local SEO</td>
+        <td>$500 – $1,500/mo</td>
+        <td class="hl"><span class="yes">$149/mo</span></td>
+      </tr>
+      <tr>
+        <td>Competitor Research</td>
+        <td>$1,000 – $3,000/mo</td>
+        <td class="hl"><span class="yes">$249/mo</span></td>
+      </tr>
+      <tr>
+        <td>Strategy Consulting</td>
+        <td>$200 – $500/hr</td>
+        <td class="hl"><span class="yes">Included (Growth)</span></td>
+      </tr>
+      <tr>
+        <td>Monthly Reporting</td>
+        <td>Extra $200+/mo</td>
+        <td class="hl"><span class="yes">Always included</span></td>
+      </tr>
+      <tr>
+        <td>Contracts</td>
+        <td>6–12 month minimum</td>
+        <td class="hl"><span class="yes">Month-to-month</span></td>
+      </tr>
+      <tr>
+        <td>Setup Fees</td>
+        <td>$500 – $2,000</td>
+        <td class="hl"><span class="yes">$0</span></td>
+      </tr>
+      <tr>
+        <td>Talk to the person doing the work</td>
+        <td><span class="no">Unlikely</span></td>
+        <td class="hl"><span class="yes">✓ Always</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <h2>How It Works</h2>
+  <div class="how-steps fade-in">
+    <div class="how-step">
+      <div class="how-step-num">1</div>
+      <div class="how-step-title">Quick Chat</div>
+      <p class="how-step-desc">15-minute call. Tell us about your business, your competitors, and your goals. That's it.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">2</div>
+      <div class="how-step-title">We Research</div>
+      <p class="how-step-desc">AI-powered tools scan your market. Pricing, ads, keywords, rankings — all tracked and analyzed.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">3</div>
+      <div class="how-step-title">Report Lands</div>
+      <p class="how-step-desc">Clean monthly report with real insights and plain-English recommendations. Not a data dump.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">4</div>
+      <div class="how-step-title">You Grow</div>
+      <p class="how-step-desc">Make smarter moves. Beat competitors to the punch. Watch your rankings and revenue climb.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <h2>Questions? Answers.</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">How is this so much cheaper than agencies?</div>
+      <div class="faq-a">AI does the heavy lifting — data collection, monitoring, analysis. That means less billable hours and lower costs for you. A human reviews everything and writes the strategy. You get the best of both.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How quickly will I see results?</div>
+      <div class="faq-a">SEO is a long game — expect meaningful ranking improvements in 2-3 months. But you'll see quick wins immediately: optimized Google Business Profile, citation fixes, and competitor insights from your very first report.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a website first?</div>
+      <div class="faq-a">A website helps, but it's not required to start. Google Business Profile optimization and competitor research work without one. That said — <a href="https://simonlpaige.com/plans/" style="color:var(--blue)">we build websites too</a>, starting at $399.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I only have 1-2 competitors?</div>
+      <div class="faq-a">That's fine — we'll track whoever matters. Fewer competitors often means deeper analysis on each one. We can also identify competitors you might not be aware of.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I switch plans?</div>
+      <div class="faq-a">Upgrade or downgrade anytime. No penalties, no hoops. Changes take effect on your next billing cycle.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the 20% web design client discount?</div>
+      <div class="faq-a">If you have a website built by <a href="https://simonlpaige.com/plans/" style="color:var(--blue)">Simon Paige</a>, you get 20% off any RivalDrop plan for as long as you're subscribed to both. Local SEO drops to $119/mo, Competitor Intel to $199/mo, and Growth to $319/mo.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a contract?</div>
+      <div class="faq-a">No. Month-to-month, cancel anytime with one email. We'd rather earn your business every month than lock you in.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>Ready to <em>outgrow</em> your competition?</h2>
+  <p>Free 15-minute consultation. We'll look at your market together and tell you exactly where the opportunities are — no strings attached.</p>
+  <div class="cta-btns">
+    <a href="tel:8163160092" class="btn-primary">Call (816) 316-0092</a>
+    <a href="mailto:simonlpaige@gmail.com" class="btn-outline">Email Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 RivalDrop · Kansas City, MO</span>
+  <span>
+    <a href="/">Home</a> · <a href="https://simonlpaige.com/plans/">Web Design</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>
+  </span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+});
+</script>
+
+</body>
+</html>

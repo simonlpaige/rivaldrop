@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#0B1426"/>
+  <text x="256" y="290" text-anchor="middle" font-family="monospace" font-weight="700" font-size="220" fill="#FFFFFF">R</text>
+  <text x="256" y="290" text-anchor="middle" font-family="monospace" font-weight="700" font-size="220" fill="#2563EB" opacity="0">D</text>
+  <!-- Blue accent bar -->
+  <rect x="136" y="340" width="240" height="6" rx="3" fill="#2563EB"/>
+</svg>

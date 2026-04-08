@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <rect width="400" height="100" rx="12" fill="#0B1426"/>
+  <text x="200" y="68" text-anchor="middle" font-family="'Space Mono', monospace, monospace" font-weight="700" font-size="42" letter-spacing="-1">
+    <tspan fill="#FFFFFF">Rival</tspan><tspan fill="#2563EB">Drop</tspan>
+  </text>
+</svg>
