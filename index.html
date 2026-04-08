@@ -1149,7 +1149,8 @@ footer a:hover{color:var(--navy)}
         <a href="RivalDrop_sample_report.pdf" download class="btn-secondary">Download PDF Directly</a>
       </div>
       <div style="margin-top:16px">
-        <input type="email" id="sample-email" placeholder="your@email.com" class="email-input" style="background:var(--white);color:var(--navy);border-color:var(--border-med);max-width:280px">
+        <label for="sample-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
+        <input type="email" id="sample-email" placeholder="your@email.com" aria-label="Email address for sample report" class="email-input" style="background:var(--white);color:var(--navy);border-color:var(--border-med);max-width:280px">
       </div>
       <p style="font-size:.78rem;color:var(--gray-400);margin-top:8px">No spam. Just the report. Unsubscribe anytime.</p>
     </div>
@@ -1288,7 +1289,8 @@ async function requestSample(btn) {
     <h2>See exactly what you&rsquo;d get every month.</h2>
     <p>Get our full 7-section competitive intelligence report for a Shopify pet accessories brand &mdash; real market data, real competitors, real action plan. No signup required.</p>
     <div class="email-row">
-      <input type="email" id="sample-email-2" placeholder="your@email.com" class="email-input">
+      <label for="sample-email-2" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
+      <input type="email" id="sample-email-2" placeholder="your@email.com" aria-label="Email address for sample report" class="email-input">
       <button onclick="requestSample2(this)" class="btn-primary" style="white-space:nowrap">Send Me the Sample</button>
     </div>
     <p class="email-disclaimer">No spam. Just the report. Unsubscribe anytime.</p>
