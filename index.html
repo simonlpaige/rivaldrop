@@ -1295,42 +1295,20 @@ async function requestSample(btn) {
   </div>
 </section>
 <script>
-async function requestSample2(btn) {
+function requestSample2(btn) {
   const emailInput = document.getElementById('sample-email-2');
   const e = emailInput.value;
   if (!e || !e.includes('@')) { alert('Please enter a valid email.'); return; }
   btn.disabled = true;
-  btn.textContent = 'Sending\u2026';
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Authorization': 'Bearer REDACTED', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: 'RivalDrop <reports@rivaldrop.com>',
-        to: [e],
-        subject: 'Your RivalDrop Sample Report',
-        html: '<h2>Your Sample Competitive Intelligence Report</h2><p>Thanks for your interest in RivalDrop! Here\'s a sample of what our monthly competitive intelligence reports look like.</p><p><strong><a href="https://rivaldrop.com/RivalDrop_sample_report.pdf">Download Your Sample Report (PDF)</a></strong></p><p>This report was built for a fictional pet accessories brand tracking 3 real competitors. Your report would be customized to your store and your specific competitors.</p><p>What\'s inside:</p><ul><li>Executive Summary with key competitive moves</li><li>Pricing Intelligence with month-over-month tracking</li><li>Ad & Creative analysis</li><li>Product & catalog changes</li><li>SEO & content signals</li><li>Social & brand moves</li><li>Prioritized Action Plan (3-5 specific moves to make)</li></ul><p>Ready to stop guessing what your competitors are doing?</p><p><strong><a href="https://rivaldrop.com/#pricing">See Pricing &mdash; From $149/mo</a></strong></p><p>Questions? Reply to this email or book a <a href="https://cal.com/home-media-h1099p/15min">free 15-min call</a>.</p><p style="color:#666;font-size:12px;margin-top:24px;">&mdash; Simon Paige<br>Founder, RivalDrop<br>rivaldrop.com</p>',
-        reply_to: 'hello@rivaldrop.com'
-      })
-    });
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Authorization': 'Bearer REDACTED', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: 'RivalDrop <reports@rivaldrop.com>',
-        to: ['simonlpaige@gmail.com'],
-        subject: 'New Sample Report Lead: ' + e,
-        html: '<p><strong>New lead requested sample report:</strong></p><p>Email: ' + e + '</p><p>Time: ' + new Date().toISOString() + '</p>'
-      })
-    });
-    btn.textContent = '\u2713 Sent! Check your inbox';
-    btn.style.background = '#10B981';
-    emailInput.value = '';
-  } catch(err) {
-    btn.textContent = 'Download Instead';
-    btn.onclick = () => window.open('/RivalDrop_sample_report.pdf', '_blank');
-    btn.disabled = false;
-  }
+  // Open the PDF directly
+  window.open('/RivalDrop_sample_report.pdf', '_blank');
+  // Notify Simon via mailto (fallback lead capture)
+  const mailLink = document.createElement('a');
+  mailLink.href = 'mailto:simonlpaige@gmail.com?subject=' + encodeURIComponent('RivalDrop Lead: ' + e) + '&body=' + encodeURIComponent('New sample report request from: ' + e + '\nTime: ' + new Date().toISOString());
+  mailLink.click();
+  btn.textContent = '\u2713 Report opened!';
+  btn.style.background = '#10B981';
+  emailInput.value = '';
 }
 </script>
 
