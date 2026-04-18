@@ -240,22 +240,24 @@ document.getElementById('onboard-form').addEventListener('submit', async (e) => 
     `<p><strong>Notes:</strong> ${data.notes || 'None'}</p>`
   ];
 
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer re_JXHraKrH_JW3QLSUEGL6E48VYA294y6Uk',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: 'RivalDrop Onboarding <onboarding@rivaldrop.com>',
-        to: ['simonlpaige@gmail.com', 'botlarry14@gmail.com'],
-        subject: `New Client Onboarding: ${data.store_name}`,
-        html: lines.join('\n'),
-        reply_to: data.email
-      })
-    });
-  } catch(err) { /* Silent fail: still show success to avoid blocking client flow. */ }
+  // Submission temporarily routed via mailto fallback while we finish the server-side handler.
+  // (Previous inline Resend call removed - the API key was client-visible. Do not restore.)
+  const subject = `New Client Onboarding: ${data.store_name || '(no store)'}`;
+  const bodyText = [
+    `Name: ${data.name || ''}`,
+    `Email: ${data.email || ''}`,
+    `Store: ${data.store_name || ''} - ${data.store_url || ''}`,
+    `Niche: ${data.niche || ''}`,
+    `Revenue: ${data.revenue || 'not disclosed'}`,
+    ``,
+    `Competitors:`,
+    ...competitors.map((c, i) => `  ${i+1}. ${c.name}${c.url ? ' - ' + c.url : ''}${c.concern ? ' (concern: ' + c.concern + ')' : ''}`),
+    ``,
+    `Priorities: ${(data.priorities || []).join(', ')}`,
+    `Notes: ${data.notes || 'none'}`
+  ].join('\n');
+  const mailto = `mailto:hello@rivaldrop.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+  window.location.href = mailto;
 
   document.getElementById('form-section').style.display = 'none';
   document.getElementById('success-section').style.display = 'block';
