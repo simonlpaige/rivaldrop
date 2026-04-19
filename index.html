@@ -3,1463 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RivalDrop &mdash; Competitive Intelligence for Shopify Brands</title>
-<meta name="description" content="Your competitors made moves last month. Do you know what they were? RivalDrop delivers monthly competitive intelligence reports for Shopify brands. From $149/mo.">
-<meta property="og:title" content="RivalDrop &mdash; Competitive Intelligence for Shopify Brands">
-<meta property="og:description" content="Your competitors changed prices last month. You found out yesterday. RivalDrop fixes that.">
+<title>RivalDrop - Competitive Intelligence for Small Business and Shopify</title>
+<meta name="description" content="RivalDrop watches your competitors' pricing pages, Google listings, and product catalogs. Every week, you get a short report on what changed.">
+<meta property="og:title" content="RivalDrop - Your competitors are doing things you don't know about yet.">
+<meta property="og:description" content="Weekly competitive intelligence reports. Pricing pages, Google listings, Shopify stores. Plain English. No dashboard.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rivaldrop.com">
-<meta property="og:image" content="https://rivaldrop.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RivalDrop &mdash; Competitive Intel for Shopify Brands">
-<meta name="twitter:description" content="Monthly competitive intelligence reports. Know what your competitors did. Know what to do about it.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4CA;</text></svg>">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --navy:#0B1426;
-  --navy-mid:#1E2D4A;
-  --blue:#2563EB;
-  --blue-light:#DBEAFE;
-  --blue-pale:#EFF6FF;
-  --blue-glow:rgba(37,99,235,.08);
-  --orange:#F97316;
-  --orange-pale:rgba(249,115,22,.1);
-  --green:#10B981;
-  --green-pale:#D1FAE5;
-  --gray-50:#F8FAFC;
-  --gray-100:#F1F5F9;
-  --gray-200:#E2E8F0;
-  --gray-300:#CBD5E1;
-  --gray-400:#94A3B8;
-  --gray-500:#64748B;
-  --gray-600:#475569;
-  --gray-700:#334155;
-  --gray-900:#0F172A;
-  --white:#FFFFFF;
-  --text:#0B1426;
-  --text-muted:#64748B;
-  --border:rgba(11,20,38,.08);
-  --border-med:rgba(11,20,38,.12);
-  --shadow-sm:0 1px 3px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.06);
-  --shadow-md:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05);
-  --shadow-lg:0 10px 40px rgba(0,0,0,.1),0 4px 12px rgba(0,0,0,.06);
-}
-
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;height:auto;display:block}
-
-/* ========== NAV ========== */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:0 32px;
-  display:flex;align-items:center;justify-content:space-between;
-  height:64px;
-}
-.nav-logo{
-  font-family:'Space Mono',monospace;
-  font-size:1.1rem;font-weight:700;letter-spacing:-0.5px;
-  color:var(--navy);
-}
-.nav-logo span{color:var(--blue)}
-.nav-links{
-  display:flex;gap:32px;
-  font-size:.9rem;font-weight:500;
-  color:var(--gray-600);
-}
-.nav-links a:hover{color:var(--navy)}
-.nav-cta{
-  background:var(--navy);color:var(--white);
-  padding:10px 20px;border-radius:8px;
-  font-size:.875rem;font-weight:600;
-  transition:background .2s;
-}
-.nav-cta:hover{background:var(--navy-mid)}
-
-/* ========== HERO ========== */
-.hero{
-  max-width:900px;margin:0 auto;
-  padding:96px 24px 80px;
-  text-align:center;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--blue-pale);
-  border:1px solid var(--blue-light);
-  color:var(--blue);
-  font-size:.8rem;font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:6px 16px;border-radius:999px;
-  margin-bottom:32px;
-}
-.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%}
-.hero h1{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2.6rem,6vw,4.2rem);
-  font-weight:400;
-  line-height:1.1;
-  letter-spacing:-0.5px;
-  color:var(--navy);
-  margin-bottom:24px;
-}
-.hero h1 em{
-  font-style:italic;
-  color:var(--blue);
-}
-.hero-sub{
-  font-size:1.15rem;
-  color:var(--text-muted);
-  max-width:560px;
-  margin:0 auto 40px;
-  line-height:1.65;
-}
-.hero-actions{
-  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
-  margin-bottom:48px;
-}
-.btn-primary{
-  background:var(--blue);color:var(--white);
-  padding:14px 28px;border-radius:10px;
-  font-weight:600;font-size:1rem;
-  transition:background .2s,transform .15s;
-  border:none;cursor:pointer;display:inline-block;
-}
-.btn-primary:hover{background:#1d51d4;transform:translateY(-1px)}
-.btn-secondary{
-  background:var(--white);color:var(--navy);
-  padding:14px 28px;border-radius:10px;
-  font-weight:600;font-size:1rem;
-  border:1.5px solid var(--border-med);
-  cursor:pointer;transition:border-color .2s,transform .15s;
-  display:inline-block;
-}
-.btn-secondary:hover{border-color:var(--gray-400);transform:translateY(-1px)}
-
-.hero-founder{
-  display:inline-flex;align-items:center;gap:12px;
-  background:var(--gray-50);
-  border:1px solid var(--border);
-  border-radius:999px;
-  padding:8px 20px 8px 8px;
-  font-size:.875rem;color:var(--gray-600);
-}
-.hero-founder img{
-  width:36px;height:36px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid var(--white);
-  box-shadow:0 0 0 1px var(--border-med);
-}
-.hero-founder strong{color:var(--navy)}
-
-/* ========== PROOF STRIP ========== */
-.proof-strip{
-  background:var(--gray-50);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:24px;
-  text-align:center;
-}
-.proof-strip-label{
-  font-size:.75rem;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--gray-400);
-  margin-bottom:16px;
-}
-.proof-badges{
-  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
-}
-.proof-badge{
-  background:var(--white);
-  border:1px solid var(--border-med);
-  border-radius:8px;
-  padding:8px 16px;
-  font-size:.85rem;font-weight:600;
-  color:var(--gray-600);
-  display:flex;align-items:center;gap:6px;
-  box-shadow:var(--shadow-sm);
-}
-.proof-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
-
-/* ========== PAIN ========== */
-.pain{padding:96px 24px;background:var(--white)}
-.pain-inner{max-width:960px;margin:0 auto;text-align:center}
-.section-label{
-  font-size:.75rem;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:12px;
-}
-.pain h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:400;line-height:1.2;
-  color:var(--navy);
-  margin-bottom:16px;
-}
-.pain-intro{
-  font-size:1.1rem;color:var(--text-muted);
-  max-width:540px;margin:0 auto 60px;
-}
-.pain-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-  text-align:left;
-}
-.pain-card{
-  background:var(--white);
-  padding:32px;
-}
-.pain-card .pain-icon{
-  font-size:1.5rem;margin-bottom:16px;
-  display:block;
-}
-.pain-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-.pain-card p{font-size:.9rem;color:var(--text-muted);line-height:1.6}
-
-/* ========== HOW IT WORKS ========== */
-.how{
-  background:var(--gray-50);
-  padding:96px 24px;
-}
-.how-inner{max-width:960px;margin:0 auto}
-.how-header{text-align:center;margin-bottom:64px}
-.how-header h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:400;color:var(--navy);
-  margin-bottom:12px;
-}
-.how-header p{font-size:1.05rem;color:var(--text-muted);max-width:480px;margin:0 auto}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;position:relative}
-.steps::before{
-  content:'';position:absolute;
-  top:28px;left:10%;right:10%;height:1px;
-  background:var(--border-med);
-  z-index:0;
-}
-.step{
-  display:flex;flex-direction:column;
-  align-items:center;text-align:center;
-  gap:16px;position:relative;z-index:1;
-  padding:0 16px;
-}
-.step-num{
-  width:56px;height:56px;
-  border-radius:50%;
-  background:var(--white);
-  border:2px solid var(--border-med);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Space Mono',monospace;
-  font-size:.85rem;font-weight:700;
-  color:var(--blue);
-  box-shadow:var(--shadow-sm);
-  flex-shrink:0;
-}
-.step h3{font-size:1rem;font-weight:700;color:var(--navy)}
-.step p{font-size:.875rem;color:var(--text-muted);line-height:1.6}
-
-/* ========== DELIVERABLES ========== */
-.deliverables{padding:96px 24px;background:var(--white)}
-.deliverables-inner{max-width:960px;margin:0 auto}
-.deliverables-header{text-align:center;margin-bottom:56px}
-.deliverables-header h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:400;color:var(--navy);
-  margin-bottom:12px;
-}
-.deliverables-header p{font-size:1.05rem;color:var(--text-muted)}
-.del-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-.del-card{
-  background:var(--gray-50);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:28px;
-  transition:box-shadow .2s;
-}
-.del-card:hover{box-shadow:var(--shadow-md)}
-.del-card-icon{
-  width:44px;height:44px;
-  background:var(--blue-pale);
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.2rem;margin-bottom:16px;
-}
-.del-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-.del-card p{font-size:.875rem;color:var(--text-muted);line-height:1.65}
-.del-card.highlight{
-  background:var(--navy);
-  border-color:var(--navy);
-}
-.del-card.highlight .del-card-icon{background:rgba(255,255,255,.1)}
-.del-card.highlight h3,.del-card.highlight p{color:rgba(255,255,255,.9)}
-.del-card.highlight p{color:rgba(255,255,255,.6)}
-
-/* ========== REPORT MOCKUP ========== */
-.report-mockup{
-  background:var(--gray-50);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:96px 24px;
-}
-.report-mockup-inner{max-width:960px;margin:0 auto}
-.report-header{text-align:center;margin-bottom:56px}
-.report-header h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:400;color:var(--navy);
-  margin-bottom:12px;
-}
-.report-header p{font-size:1.05rem;color:var(--text-muted);max-width:500px;margin:0 auto}
-
-/* Report page simulator */
-.report-pages{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-  margin-bottom:32px;
-}
-.report-page{
-  background:var(--white);
-  border:1px solid var(--border-med);
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:var(--shadow-md);
-}
-.report-page-header{
-  background:var(--navy);
-  padding:16px 20px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.report-page-header .report-logo{
-  font-family:'Space Mono',monospace;
-  font-size:.8rem;font-weight:700;
-  color:var(--white);letter-spacing:-0.5px;
-}
-.report-page-header .report-logo span{color:#60a5fa}
-.report-page-header .page-num{
-  font-family:'Space Mono',monospace;
-  font-size:.7rem;color:rgba(255,255,255,.4);
-}
-.report-page-body{padding:20px}
-.report-page-title{
-  font-size:.65rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:8px;
-}
-.report-page h3{
-  font-size:1rem;font-weight:700;
-  color:var(--navy);margin-bottom:12px;
-}
-.report-tag{
-  display:inline-block;
-  font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  padding:3px 8px;border-radius:4px;margin-bottom:12px;
-}
-.tag-urgent{background:rgba(249,115,22,.12);color:var(--orange)}
-.tag-neutral{background:var(--blue-pale);color:var(--blue)}
-.tag-good{background:var(--green-pale);color:var(--green)}
-
-/* Executive summary mock */
-.exec-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
-.exec-bullet{
-  display:flex;align-items:flex-start;gap:10px;
-  font-size:.8rem;color:var(--gray-700);
-  padding:8px 10px;
-  background:var(--gray-50);
-  border-radius:8px;
-  border-left:3px solid transparent;
-}
-.exec-bullet.urgent{border-left-color:var(--orange)}
-.exec-bullet.neutral{border-left-color:var(--blue)}
-.exec-bullet.good{border-left-color:var(--green)}
-.exec-bullet::before{flex-shrink:0;margin-top:1px}
-.exec-bullet.urgent::before{content:'⚡';font-size:.9rem}
-.exec-bullet.neutral::before{content:'📊';font-size:.9rem}
-.exec-bullet.good::before{content:'✓';color:var(--green);font-weight:700;font-size:.9rem}
-
-/* Pricing table mock */
-.price-table{width:100%;border-collapse:collapse;font-size:.75rem}
-.price-table th{
-  text-align:left;padding:6px 8px;
-  font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--gray-400);border-bottom:1px solid var(--border);
-}
-.price-table td{padding:8px 8px;border-bottom:1px solid var(--border);color:var(--gray-700)}
-.price-table td:first-child{font-weight:600;color:var(--navy)}
-.price-change{font-weight:700;font-size:.8rem}
-.price-up{color:#EF4444}
-.price-down{color:var(--green)}
-.price-flat{color:var(--gray-400)}
-
-/* Action plan mock */
-.action-items{list-style:none;display:flex;flex-direction:column;gap:8px}
-.action-item{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:10px 12px;
-  background:var(--gray-50);
-  border-radius:8px;
-  font-size:.78rem;
-}
-.action-num{
-  width:20px;height:20px;
-  background:var(--blue);color:var(--white);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:1px;
-}
-.action-item-text{color:var(--gray-700);line-height:1.5}
-.action-item-text strong{color:var(--navy);font-weight:700}
-
-.report-cta-row{
-  text-align:center;padding:24px;
-  background:var(--blue-pale);
-  border-radius:12px;
-  border:1px solid var(--blue-light);
-}
-.report-cta-row p{font-size:.9rem;color:var(--gray-600);margin-bottom:12px}
-
-/* ========== FOUNDER ========== */
-.founder{
-  padding:96px 24px;
-  background:var(--white);
-}
-.founder-inner{
-  max-width:800px;margin:0 auto;
-  display:grid;grid-template-columns:auto 1fr;
-  gap:64px;align-items:start;
-}
-.founder-photo-wrap{
-  position:relative;flex-shrink:0;
-}
-.founder-photo{
-  width:200px;height:240px;
-  border-radius:16px;
-  object-fit:cover;
-  box-shadow:var(--shadow-lg);
-}
-.founder-photo-badge{
-  position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
-  background:var(--white);
-  border:1px solid var(--border-med);
-  border-radius:20px;
-  padding:8px 14px;
-  font-size:.75rem;font-weight:600;
-  color:var(--navy);
-  white-space:nowrap;
-  box-shadow:var(--shadow-sm);
-  display:flex;align-items:center;gap:6px;
-}
-.founder-photo-badge::before{content:'✓';color:var(--green)}
-.founder-content{padding-top:8px}
-.founder-content .eyebrow{
-  font-size:.75rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:16px;
-}
-.founder-content h2{
-  font-family:'Instrument Serif',serif;
-  font-size:2.2rem;font-weight:400;
-  line-height:1.2;color:var(--navy);
-  margin-bottom:24px;
-}
-.founder-content h2 em{font-style:italic}
-.founder-content p{
-  font-size:1rem;color:var(--text-muted);
-  line-height:1.75;margin-bottom:16px;
-}
-.founder-content p strong{color:var(--navy);font-weight:600}
-.founder-sig{
-  margin-top:24px;
-  font-family:'Instrument Serif',serif;
-  font-size:1.4rem;font-style:italic;
-  color:var(--navy-mid);
-}
-.founder-sig-title{
-  font-family:'Inter',sans-serif;
-  font-size:.8rem;font-weight:500;
-  color:var(--text-muted);margin-top:2px;
-  font-style:normal;
-}
-
-/* ========== PRICING ========== */
-.pricing{
-  background:var(--gray-50);
-  padding:96px 24px;
-}
-.pricing-inner{max-width:960px;margin:0 auto}
-.pricing-header{text-align:center;margin-bottom:16px}
-.pricing-header h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:400;color:var(--navy);
-  margin-bottom:12px;
-}
-.pricing-header p{font-size:1.05rem;color:var(--text-muted)}
-.pricing-urgency{
-  text-align:center;margin-bottom:40px;
-}
-.urgency-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--orange-pale);
-  border:1px solid rgba(249,115,22,.25);
-  color:var(--orange);
-  font-size:.8rem;font-weight:700;
-  letter-spacing:.05em;text-transform:uppercase;
-  padding:7px 16px;border-radius:999px;
-}
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
-}
-.price-card{
-  background:var(--white);
-  border:1.5px solid var(--border-med);
-  border-radius:20px;
-  padding:40px;
-  position:relative;
-  display:flex;flex-direction:column;
-  transition:box-shadow .2s,transform .2s;
-}
-.price-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
-.price-card.featured{
-  border-color:var(--blue);
-  background:var(--navy);
-}
-.price-card-label{
-  font-size:.75rem;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  margin-bottom:24px;
-  color:var(--text-muted);
-}
-.price-card.featured .price-card-label{color:rgba(255,255,255,.5)}
-.price-card-label .popular-tag{
-  background:var(--blue);color:var(--white);
-  font-size:.65rem;padding:2px 8px;border-radius:4px;
-  margin-left:8px;
-}
-.price-amount{
-  font-size:3.5rem;font-weight:700;
-  color:var(--navy);line-height:1;
-  margin-bottom:4px;
-}
-.price-card.featured .price-amount{color:var(--white)}
-.price-amount span{font-size:1.2rem;font-weight:400;color:var(--text-muted)}
-.price-card.featured .price-amount span{color:rgba(255,255,255,.5)}
-.price-was{
-  font-size:.8rem;color:var(--text-muted);
-  text-decoration:line-through;margin-bottom:4px;
-}
-.price-card.featured .price-was{color:rgba(255,255,255,.35)}
-.price-period{font-size:.875rem;color:var(--text-muted);margin-bottom:32px}
-.price-card.featured .price-period{color:rgba(255,255,255,.5)}
-
-.price-divider{
-  height:1px;background:var(--border);
-  margin-bottom:28px;
-}
-.price-card.featured .price-divider{background:rgba(255,255,255,.1)}
-
-.price-pillars{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
-.price-pillar{
-  display:flex;align-items:flex-start;gap:10px;
-  font-size:.925rem;color:var(--gray-700);
-}
-.price-card.featured .price-pillar{color:rgba(255,255,255,.8)}
-.price-pillar::before{
-  content:'✓';
-  color:var(--green);font-weight:700;
-  flex-shrink:0;margin-top:1px;
-  font-size:.9rem;
-}
-
-.price-cta{
-  display:block;text-align:center;
-  padding:15px 24px;
-  border-radius:12px;
-  font-weight:700;font-size:1rem;
-  margin-top:auto;
-  transition:all .2s;
-}
-.price-cta-primary{
-  background:var(--blue);color:var(--white);
-}
-.price-cta-primary:hover{background:#1d51d4;transform:translateY(-1px)}
-.price-cta-outline{
-  background:var(--white);color:var(--navy);
-  border:1.5px solid var(--border-med);
-}
-.price-cta-outline:hover{border-color:var(--gray-400);transform:translateY(-1px)}
-
-.price-note{font-size:.78rem;color:var(--text-muted);margin-top:12px;text-align:center}
-.price-card.featured .price-note{color:rgba(255,255,255,.4)}
-
-.guarantee-row{
-  text-align:center;margin-top:32px;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  flex-wrap:wrap;
-}
-.guarantee-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--white);
-  border:1px solid var(--border-med);
-  border-radius:10px;padding:10px 18px;
-  font-size:.85rem;font-weight:600;color:var(--navy);
-  box-shadow:var(--shadow-sm);
-}
-.guarantee-badge .shield{font-size:1rem}
-.book-call-link{
-  font-size:.875rem;color:var(--blue);font-weight:500;
-}
-.book-call-link:hover{text-decoration:underline}
-
-/* ========== ADD-ONS ========== */
-.addons{padding:0 24px 80px;background:var(--gray-50)}
-.addons-inner{max-width:960px;margin:0 auto}
-.addons h3{
-  font-size:1rem;font-weight:600;
-  text-align:center;color:var(--text-muted);
-  margin-bottom:16px;padding-top:8px;
-}
-.addon-row{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:10px;
-}
-.addon{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:10px;padding:16px 20px;
-  display:flex;justify-content:space-between;align-items:center;
-  transition:box-shadow .2s;
-  text-decoration:none;
-}
-.addon:hover{box-shadow:var(--shadow-sm)}
-.addon-name{font-size:.875rem;font-weight:500;color:var(--navy)}
-.addon-price{
-  font-family:'Space Mono',monospace;
-  font-size:.8rem;color:var(--blue);font-weight:700;
-}
-
-/* ========== EMAIL CAPTURE ========== */
-.email-capture{
-  background:var(--navy);
-  padding:80px 24px;
-  text-align:center;
-}
-.email-capture-inner{max-width:560px;margin:0 auto}
-.email-capture .eyebrow{
-  font-size:.75rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);margin-bottom:16px;
-}
-.email-capture h2{
-  font-family:'Instrument Serif',serif;
-  font-size:2rem;font-weight:400;color:var(--white);
-  margin-bottom:12px;
-}
-.email-capture p{
-  color:rgba(255,255,255,.55);
-  font-size:.95rem;margin-bottom:28px;line-height:1.65;
-}
-.email-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.email-input{
-  padding:14px 18px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.07);
-  color:var(--white);font-size:1rem;
-  flex:1;min-width:220px;max-width:300px;
-  outline:none;
-  transition:border-color .2s;
-}
-.email-input::placeholder{color:rgba(255,255,255,.3)}
-.email-input:focus{border-color:rgba(255,255,255,.3)}
-.email-disclaimer{
-  color:rgba(255,255,255,.3);
-  font-size:.78rem;margin-top:12px;
-}
-
-/* ========== FAQ ========== */
-.faq{padding:96px 24px;background:var(--white)}
-.faq-inner{max-width:680px;margin:0 auto}
-.faq-header{text-align:center;margin-bottom:48px}
-.faq-header h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:400;color:var(--navy);
-}
-.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
-.faq-q{
-  font-weight:600;font-size:1rem;
-  color:var(--navy);
-  cursor:pointer;
-  display:flex;justify-content:space-between;align-items:center;gap:16px;
-}
-.faq-q .faq-icon{
-  width:28px;height:28px;
-  border-radius:50%;
-  border:1.5px solid var(--border-med);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gray-500);font-size:1rem;font-weight:400;
-  flex-shrink:0;
-  transition:all .2s;
-}
-.faq-a{
-  font-size:.925rem;color:var(--text-muted);
-  line-height:1.7;
-  max-height:0;overflow:hidden;
-  transition:max-height .3s ease,padding .3s;
-}
-.faq-item.open .faq-a{max-height:250px;padding-top:14px}
-.faq-item.open .faq-icon{background:var(--navy);border-color:var(--navy);color:var(--white);transform:rotate(45deg)}
-
-/* ========== FINAL CTA ========== */
-.final-cta{
-  background:var(--gray-50);
-  border-top:1px solid var(--border);
-  padding:96px 24px;text-align:center;
-}
-.final-cta-inner{max-width:640px;margin:0 auto}
-.final-cta h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(2rem,5vw,3.2rem);
-  font-weight:400;color:var(--navy);
-  margin-bottom:16px;line-height:1.15;
-}
-.final-cta h2 em{font-style:italic;color:var(--blue)}
-.final-cta p{
-  font-size:1.05rem;color:var(--text-muted);
-  margin-bottom:36px;line-height:1.65;
-}
-.final-cta-meta{
-  margin-top:20px;
-  font-size:.85rem;color:var(--text-muted);
-  display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;
-}
-.final-cta-meta span{display:flex;align-items:center;gap:4px}
-
-/* ========== ABOUT ========== */
-.about{
-  padding:80px 24px;background:var(--white);
-}
-.about-inner{max-width:680px;margin:0 auto;text-align:center}
-.about h2{
-  font-family:'Instrument Serif',serif;
-  font-size:1.8rem;font-weight:400;color:var(--navy);
-  margin-bottom:16px;
-}
-.about p{font-size:.95rem;color:var(--text-muted);line-height:1.75;margin-bottom:12px}
-
-/* ========== CONTACT ========== */
-.contact{
-  background:var(--gray-50);
-  border-top:1px solid var(--border);
-  padding:80px 24px;
-}
-.contact-inner{max-width:520px;margin:0 auto;text-align:center}
-.contact h2{
-  font-family:'Instrument Serif',serif;
-  font-size:2rem;font-weight:400;color:var(--navy);
-  margin-bottom:8px;
-}
-.contact .sub{font-size:.95rem;color:var(--text-muted);margin-bottom:32px}
-.contact-form{display:flex;flex-direction:column;gap:14px;text-align:left}
-.form-label{font-size:.85rem;font-weight:600;color:var(--navy);display:block;margin-bottom:6px}
-.form-input{
-  width:100%;padding:12px 16px;
-  border-radius:10px;
-  border:1.5px solid var(--border-med);
-  background:var(--white);
-  color:var(--navy);font-size:1rem;
-  outline:none;font-family:'Inter',sans-serif;
-  transition:border-color .2s;
-}
-.form-input:focus{border-color:var(--blue)}
-.form-input::placeholder{color:var(--gray-400)}
-textarea.form-input{resize:vertical}
-.contact-links{
-  margin-top:20px;
-  display:flex;gap:20px;justify-content:center;
-  font-size:.875rem;
-}
-.contact-links a{color:var(--blue);font-weight:500}
-.contact-links a:hover{text-decoration:underline}
-
-/* ========== FOOTER ========== */
-footer{
-  border-top:1px solid var(--border);
-  padding:28px 24px;text-align:center;
-  font-size:.85rem;color:var(--text-muted);
-  background:var(--white);
-}
-footer a{color:var(--text-muted)}
-footer a:hover{color:var(--navy)}
-.footer-logo{
-  font-family:'Space Mono',monospace;
-  font-weight:700;color:var(--navy);
-}
-.footer-logo span{color:var(--blue)}
-.footer-nav{
-  display:flex;gap:20px;justify-content:center;
-  flex-wrap:wrap;margin-top:8px;
-}
-
-/* ========== RESPONSIVE ========== */
-@media(max-width:768px){
-  .nav-links{display:none}
-  nav{padding:0 20px}
-  .hero{padding:64px 20px 48px}
-  .founder-inner{
-    grid-template-columns:1fr;
-    gap:40px;text-align:center;
-  }
-  .founder-photo-wrap{display:flex;flex-direction:column;align-items:center}
-  .report-pages{grid-template-columns:1fr}
-  .steps::before{display:none}
-  .steps{gap:32px}
-  .step{align-items:flex-start;text-align:left}
-}
-@media(max-width:600px){
-  .pricing-grid{grid-template-columns:1fr}
-  .hero h1{font-size:2.4rem}
-  .pain-grid{grid-template-columns:1fr}
-}
-</style>
-<script defer data-domain="rivaldrop.com" src="https://plausible.io/js/script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Rival<span>Drop</span></div>
-  <div class="nav-links">
-    <a href="#how">How It Works</a>
-    <a href="#report">Sample Report</a>
-    <a href="#pricing">Pricing</a>
-    <a href="/services">Local Services</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a href="#get-sample" class="nav-cta">See Sample Report</a>
-</nav>
+<a href="#main" class="skip-nav">Skip to main content</a>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Competitive Intelligence for Shopify Brands</div>
-  <h1>Your competitors changed prices last&nbsp;month.<br><em>You found out yesterday.</em></h1>
-  <p class="hero-sub">RivalDrop delivers a monthly intelligence report on your competitors&rsquo; pricing, ads, product moves, and strategy &mdash; with a clear action plan. So you stop reacting and start leading.</p>
-  <div class="hero-actions">
-    <a href="#get-sample" class="btn-primary">See a Sample Report</a>
-    <a href="#pricing" class="btn-secondary">View Pricing</a>
-  </div>
-  <div class="hero-founder">
-    <img src="simon-paige.jpg" alt="Simon Paige, founder of RivalDrop" loading="lazy">
-    <span><strong>Built by Simon Paige</strong> &mdash; Shopify operator, not a consultant</span>
-  </div>
-</section>
+<!-- Header -->
+<header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="site-nav__logo" aria-label="RivalDrop home">
+      <img src="/assets/logo.svg" alt="RivalDrop" height="32">
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="/local/">/local</a></li>
+      <li><a href="/services/">Shopify</a></li>
+      <li><a href="/sample/">Sample</a></li>
+      <li><a href="mailto:simon@rivaldrop.com">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- DATA SOURCES PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-strip-label">Powered by real data from</div>
-  <div class="proof-badges">
-    <div class="proof-badge"><span class="dot"></span>Shopify Storefronts</div>
-    <div class="proof-badge"><span class="dot"></span>Meta Ad Library</div>
-    <div class="proof-badge"><span class="dot"></span>Semrush</div>
-    <div class="proof-badge"><span class="dot"></span>SimilarWeb</div>
-    <div class="proof-badge"><span class="dot"></span>Google Shopping</div>
-    <div class="proof-badge"><span class="dot"></span>TikTok Ad Library</div>
-    <div class="proof-badge"><span class="dot"></span>Ahrefs</div>
-    <div class="proof-badge"><span class="dot"></span>LinkedIn</div>
-  </div>
-</div>
+<main id="main">
 
-<!-- PAIN -->
-<section class="pain">
-  <div class="pain-inner">
-    <div class="section-label">The Problem</div>
-    <h2>You&rsquo;re flying blind.<br>Your competitors aren&rsquo;t.</h2>
-    <p class="pain-intro">Every month your competitors make moves. Most Shopify operators find out weeks later &mdash; if at all.</p>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <span class="pain-icon">📉</span>
-        <h3>Pricing surprises</h3>
-        <p>A competitor quietly dropped prices last month. Your conversion rate tanked. You found out two weeks later when it was already too late.</p>
-      </div>
-      <div class="pain-card">
-        <span class="pain-icon">🎯</span>
-        <h3>Ad blindness</h3>
-        <p>They&rsquo;re running a new creative angle that&rsquo;s clearly working. You&rsquo;re still guessing at concepts while they&rsquo;re scaling what converts.</p>
-      </div>
-      <div class="pain-card">
-        <span class="pain-icon">📦</span>
-        <h3>Product launch lag</h3>
-        <p>A competitor launched a new SKU that&rsquo;s eating your category. You heard about it from a customer, not your own research.</p>
-      </div>
-      <div class="pain-card">
-        <span class="pain-icon">🔍</span>
-        <h3>SEO erosion</h3>
-        <p>They&rsquo;ve been building content for six months. Your organic rankings are quietly sliding. You had no early warning system.</p>
-      </div>
+  <!-- Hero -->
+  <section class="hero section container">
+    <h1>Your competitors are doing things you don't know about yet.</h1>
+    <p class="hero__sub">RivalDrop watches their pricing pages, Google listings, and product catalogs. Every week, you get a short report on what changed. No dashboard to learn. No data to interpret. Just: here's what happened.</p>
+    <div class="hero__actions">
+      <a href="#plans" class="btn btn--primary">Start watching</a>
+      <a href="/RivalDrop_sample_report.pdf" class="btn btn--secondary">See a sample report</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="how-inner">
-    <div class="how-header">
-      <div class="section-label">The Process</div>
-      <h2>Set it. Forget it. Know everything.</h2>
-      <p>Four steps. You do five minutes of work. We do the rest.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Tell us who to watch</h3>
-        <p>Fill out a 5-minute questionnaire. Name up to 5 competitors and what matters most. That&rsquo;s your only job.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>We dig deep</h3>
-        <p>Pricing, ad creative, product launches, SEO movement, and social strategy &mdash; tracked across all your competitors every month.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Report hits your inbox</h3>
-        <p>A clean PDF brief with context and synthesis &mdash; not a raw data dump. Optional 15-min call to walk through it.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Make better moves</h3>
-        <p>Adjust pricing before it hurts. Kill losing ads faster. Launch into whitespace before competitors claim it.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <hr class="rule container">
 
-<!-- DELIVERABLES -->
-<section class="deliverables" id="deliverables">
-  <div class="deliverables-inner">
-    <div class="deliverables-header">
-      <div class="section-label">What You Get</div>
-      <h2>Every report covers 6 critical areas.</h2>
-      <p>Delivered as a clean, actionable PDF &mdash; not a dashboard to ignore.</p>
-    </div>
-    <div class="del-grid">
-      <div class="del-card">
-        <div class="del-card-icon">💰</div>
-        <h3>Pricing Intelligence</h3>
-        <p>Complete competitor pricing tracked month-over-month. Know who raised, who dropped, and the pattern behind their moves.</p>
-      </div>
-      <div class="del-card">
-        <div class="del-card-icon">📣</div>
-        <h3>Ad &amp; Creative Tracking</h3>
-        <p>Active ads, estimated spend ranges, new creative angles, and messaging shifts. See what&rsquo;s working for them before you test it yourself.</p>
-      </div>
-      <div class="del-card">
-        <div class="del-card-icon">🛍️</div>
-        <h3>Product &amp; Catalog Changes</h3>
-        <p>New launches, discontinued SKUs, bundle changes, and inventory signals. Never be the last to know about a category shift.</p>
-      </div>
-      <div class="del-card">
-        <div class="del-card-icon">📈</div>
-        <h3>SEO &amp; Content Signals</h3>
-        <p>New content published, keyword movements, backlink acquisitions. Understand their organic strategy before it steals your rankings.</p>
-      </div>
-      <div class="del-card">
-        <div class="del-card-icon">📱</div>
-        <h3>Social &amp; Brand Moves</h3>
-        <p>Engagement trends, influencer partnerships, campaign themes. Track brand positioning shifts before they reframe your market.</p>
-      </div>
-      <div class="del-card highlight">
-        <div class="del-card-icon">⚡</div>
-        <h3>The Action Plan</h3>
-        <p>Not just &ldquo;here&rsquo;s what they did.&rdquo; A prioritized list of 3&ndash;5 specific moves to make this month based on what we found. This is the part clients love most.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SAMPLE REPORT MOCKUP -->
-<section class="report-mockup" id="report">
-  <div class="report-mockup-inner">
-    <div class="report-header">
-      <div class="section-label">Inside a RivalDrop Brief</div>
-      <h2>7 sections. Zero fluff. Actual actions.</h2>
-      <p>Here&rsquo;s what a real report looks like &mdash; built for a Shopify pet accessories brand tracking 3 competitors.</p>
-    </div>
-
-    <div class="report-pages">
-      <!-- PAGE 1: EXECUTIVE SUMMARY -->
-      <div class="report-page">
-        <div class="report-page-header">
-          <div class="report-logo">Rival<span>Drop</span></div>
-          <div class="page-num">Page 1 of 7 &nbsp;&middot;&nbsp; March 2026</div>
-        </div>
-        <div class="report-page-body">
-          <div class="report-page-title">Executive Summary</div>
-          <h3>Bark &amp; Beyond &mdash; Competitor Intelligence Brief</h3>
-          <ul class="exec-bullets">
-            <li class="exec-bullet urgent">PawCo dropped harness prices 18% on March 3rd. Now $5 below your hero SKU. Conversion impact likely.</li>
-            <li class="exec-bullet neutral">WoofCrate launched a subscription box targeting your exact customer. 12 active Facebook ads in 10 days.</li>
-            <li class="exec-bullet good">Your main competitor&rsquo;s SEO traffic dropped 14%. Opportunity to capture their branded queries.</li>
-            <li class="exec-bullet neutral">PawCo added 3 new colorways to their bestseller. Catalog expansion in your core category.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- PAGE 2: PRICING TABLE -->
-      <div class="report-page">
-        <div class="report-page-header">
-          <div class="report-logo">Rival<span>Drop</span></div>
-          <div class="page-num">Pages 2&ndash;3 &nbsp;&middot;&nbsp; Pricing Intelligence</div>
-        </div>
-        <div class="report-page-body">
-          <div class="report-page-title">Pricing Intelligence</div>
-          <h3>Month-over-Month Price Changes</h3>
-          <table class="price-table">
-            <thead>
-              <tr>
-                <th>Competitor</th>
-                <th>Product</th>
-                <th>Was</th>
-                <th>Now</th>
-                <th>Change</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>PawCo</td>
-                <td>Trail Harness</td>
-                <td>$42</td>
-                <td>$34</td>
-                <td><span class="price-change price-down">▼ 19%</span></td>
-              </tr>
-              <tr>
-                <td>WoofCrate</td>
-                <td>Collapsible Bowl</td>
-                <td>$18</td>
-                <td>$22</td>
-                <td><span class="price-change price-up">▲ 22%</span></td>
-              </tr>
-              <tr>
-                <td>K9 Gear Co.</td>
-                <td>Reflective Lead</td>
-                <td>$29</td>
-                <td>$29</td>
-                <td><span class="price-change price-flat">&mdash; flat</span></td>
-              </tr>
-              <tr>
-                <td>PawCo</td>
-                <td>Memory Foam Bed</td>
-                <td>$89</td>
-                <td>$79</td>
-                <td><span class="price-change price-down">▼ 11%</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style="font-size:.7rem;color:var(--gray-400);margin-top:10px">Data captured March 1&ndash;31, 2026. Price changes confirmed across multiple tracking points.</p>
-        </div>
-      </div>
-
-      <!-- PAGE 3: AD INTEL -->
-      <div class="report-page">
-        <div class="report-page-header">
-          <div class="report-logo">Rival<span>Drop</span></div>
-          <div class="page-num">Pages 4&ndash;5 &nbsp;&middot;&nbsp; Ad &amp; Creative</div>
-        </div>
-        <div class="report-page-body">
-          <div class="report-page-title">Ad &amp; Creative Intelligence</div>
-          <h3>Notable Creative Shifts This Month</h3>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <div style="background:var(--gray-50);border-radius:8px;padding:10px 12px;font-size:.78rem">
-              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                <span style="font-weight:700;color:var(--navy)">WoofCrate &mdash; Facebook</span>
-                <span class="report-tag tag-urgent">12 new ads</span>
-              </div>
-              <p style="color:var(--gray-600);line-height:1.5">Lead angle: &ldquo;The subscription box your dog actually uses.&rdquo; UGC-style with raw video testimonials. Targeting parents with dogs 2&ndash;5 years.</p>
-            </div>
-            <div style="background:var(--gray-50);border-radius:8px;padding:10px 12px;font-size:.78rem">
-              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                <span style="font-weight:700;color:var(--navy)">PawCo &mdash; Google Shopping</span>
-                <span class="report-tag tag-neutral">Price anchoring</span>
-              </div>
-              <p style="color:var(--gray-600);line-height:1.5">Bidding aggressively on &ldquo;dog harness&rdquo; since price drop. Estimated spend +40% vs. Feb. Likely testing price elasticity.</p>
-            </div>
-            <div style="background:var(--gray-50);border-radius:8px;padding:10px 12px;font-size:.78rem">
-              <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-                <span style="font-weight:700;color:var(--navy)">K9 Gear Co. &mdash; Instagram</span>
-                <span class="report-tag tag-good">New UGC push</span>
-              </div>
-              <p style="color:var(--gray-600);line-height:1.5">3 micro-influencer partnerships activated (5k&ndash;50k followers). Outdoor/adventure niche. First creator content live March 18.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PAGE 4: ACTION PLAN -->
-      <div class="report-page" style="border-color:var(--blue)">
-        <div class="report-page-header" style="background:var(--blue)">
-          <div class="report-logo" style="color:var(--white)">Rival<span style="color:#bfdbfe">Drop</span></div>
-          <div class="page-num" style="color:rgba(255,255,255,.5)">Page 7 &nbsp;&middot;&nbsp; The Reason You Subscribe</div>
-        </div>
-        <div class="report-page-body">
-          <div class="report-page-title">Action Plan</div>
-          <h3>Your 3 Moves This Month</h3>
-          <ul class="action-items">
-            <li class="action-item">
-              <div class="action-num">1</div>
-              <div class="action-item-text"><strong>Run a 2-week harness bundle offer.</strong> Match PawCo&rsquo;s effective price via a bundle (harness + lead) at $59. Preserves unit economics while staying competitive. Launch by April 7.</div>
-            </li>
-            <li class="action-item">
-              <div class="action-num">2</div>
-              <div class="action-item-text"><strong>Counter WoofCrate with an email sequence.</strong> Target past customers with a &ldquo;here&rsquo;s what we stocked this month&rdquo; email. Reduce churn before their subscription model steals your repeat buyers.</div>
-            </li>
-            <li class="action-item">
-              <div class="action-num">3</div>
-              <div class="action-item-text"><strong>Claim K9&rsquo;s branded search traffic.</strong> Their organic drop creates a window. Create one comparison page targeting &ldquo;K9 Gear Co. alternative&rdquo; this month while their authority is down.</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="report-cta-row" id="get-sample">
-      <p>This is a condensed preview. The full report is 12&ndash;15 pages with sourced data, ad screenshots, and full context.</p>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <button onclick="requestSample(this)" class="btn-primary">Send Me the Full Sample Report</button>
-        <a href="RivalDrop_sample_report.pdf" download class="btn-secondary">Download PDF Directly</a>
-      </div>
-      <div style="margin-top:16px">
-        <label for="sample-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
-        <input type="email" id="sample-email" placeholder="your@email.com" aria-label="Email address for sample report" class="email-input" style="background:var(--white);color:var(--navy);border-color:var(--border-med);max-width:280px">
-      </div>
-      <p style="font-size:.78rem;color:var(--gray-400);margin-top:8px">No spam. Just the report. Unsubscribe anytime.</p>
-    </div>
-  </div>
-</section>
-
-<script>
-async function requestSample(btn) {
-  const emailInput = document.getElementById('sample-email');
-  const e = emailInput.value;
-  if (!e || !e.includes('@')) { alert('Enter your email below first, then click Send.'); emailInput.focus(); return; }
-  btn.disabled = true;
-  btn.textContent = 'Sending\u2026';
-  try {
-    const res = await fetch('/.netlify/functions/send-sample', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: e })
-    });
-    if (!res.ok) throw new Error('Send failed');
-    btn.textContent = '\u2713 Sent! Check your inbox';
-    btn.style.background = '#10B981';
-    emailInput.value = '';
-  } catch(err) {
-    btn.textContent = 'Download Instead';
-    btn.onclick = () => window.open('/RivalDrop_sample_report.pdf', '_blank');
-    btn.disabled = false;
-  }
-}
-</script>
-
-<!-- FOUNDER SECTION -->
-<section class="founder" id="about">
-  <div class="founder-inner">
-    <div class="founder-photo-wrap">
-      <img src="simon-paige.jpg" alt="Simon Paige, founder of RivalDrop" class="founder-photo" loading="lazy">
-      <div class="founder-photo-badge">Shopify Operator</div>
-    </div>
-    <div class="founder-content">
-      <div class="eyebrow">The Person Behind It</div>
-      <h2>Built by <em>Simon&nbsp;Paige</em> &mdash;<br>operator, not a consultant.</h2>
-      <p>I ran a Shopify brand for years. I knew my competitors were making moves &mdash; price drops, new products, ad pivots &mdash; but I was always finding out <strong>after the fact.</strong> Too slow to respond, too busy to track it myself.</p>
-      <p>I started spending 10+ hours a month manually stalking competitors. Saved spreadsheets, Meta Ad Library tabs, Semrush exports. It worked, but it was consuming. So I systematized it. Then I realized <strong>every Shopify operator has this problem</strong> and nobody&rsquo;s solving it at the right level.</p>
-      <p>RivalDrop is the service I wish existed when I was running my store. Not a dashboard. Not a tool. A curated brief, written by someone who understands what the data actually means for your business.</p>
-      <div class="founder-sig">
-        Simon Paige
-        <div class="founder-sig-title">Founder, RivalDrop &nbsp;&middot;&nbsp; hello@rivaldrop.com</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <div class="pricing-header">
-      <div class="section-label">Pricing</div>
-      <h2>Simple, transparent pricing.</h2>
-      <p>Launch pricing &mdash; lock in your intro rate. Cancel anytime.</p>
-    </div>
-    <div class="pricing-urgency">
-      <span class="urgency-badge">🔥 Launch pricing &mdash; first 10 clients only</span>
-    </div>
-    <div class="pricing-grid">
-      <!-- STARTER -->
-      <div class="price-card">
-        <div class="price-card-label">Starter</div>
-        <div class="price-amount">$149<span>/mo</span></div>
-        <div class="price-was">$197/mo after launch</div>
-        <div class="price-period">billed monthly &nbsp;&middot;&nbsp; cancel anytime</div>
-        <div class="price-divider"></div>
-        <ul class="price-pillars">
-          <li>Full 7-section competitive intelligence report, delivered monthly</li>
-          <li>Up to 3 competitors tracked across pricing, ads, products, SEO &amp; social</li>
-          <li>Prioritized action plan &mdash; 3&ndash;5 specific moves to make this month</li>
-          <li>Mid-month alert if anything urgent surfaces</li>
-        </ul>
-        <a href="https://buy.stripe.com/bJe4gB4FD36B8Eubz07Re00" class="price-cta price-cta-outline">Get Starter &rarr;</a>
-        <div class="price-note">First report in 5 business days &middot; Onboarding in 24h</div>
-      </div>
-      <!-- GROWTH -->
-      <div class="price-card featured">
-        <div class="price-card-label">Growth <span class="popular-tag">Most Popular</span></div>
-        <div class="price-amount">$247<span>/mo</span></div>
-        <div class="price-was">$297/mo after launch</div>
-        <div class="price-period">billed monthly &nbsp;&middot;&nbsp; cancel anytime</div>
-        <div class="price-divider"></div>
-        <ul class="price-pillars">
-          <li>Everything in Starter, plus:</li>
-          <li>Up to <strong>5 competitors</strong> tracked</li>
-          <li>15-min monthly strategy call included</li>
-          <li>Competitor discovery in first report &mdash; we find who else to watch</li>
-          <li>Priority mid-month alerts</li>
-        </ul>
-        <a href="https://buy.stripe.com/fZu00l9ZX5eJ6wmbz07Re01" class="price-cta price-cta-primary">Get Growth &rarr;</a>
-        <div class="price-note">First report in 5 business days &middot; Onboarding in 24h</div>
-      </div>
-    </div>
-    <div class="guarantee-row">
-      <div class="guarantee-badge">
-        <span class="shield">🛡️</span>
-        <span><strong>30-day money-back guarantee</strong> &mdash; if your first report isn&rsquo;t worth it, full refund. No questions.</span>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:20px">
-      <a href="https://cal.com/home-media-h1099p/15min" class="book-call-link">Not sure yet? Book a free 15-min call &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ADD-ONS -->
-<section class="addons">
-  <div class="addons-inner">
-    <h3>Add-ons available on any plan</h3>
-    <div class="addon-row">
-      <a href="https://buy.stripe.com/fZu14pfkh5eJ4oe1Yq7Re04" class="addon">
-        <div class="addon-name">Additional competitor</div>
-        <div class="addon-price">+$50/mo</div>
-      </a>
-      <a href="https://buy.stripe.com/7sY6oJ4FD6iN8Eu46y7Re02" class="addon">
-        <div class="addon-name">On-demand deep dive</div>
-        <div class="addon-price">$150 each</div>
-      </a>
-      <a href="https://buy.stripe.com/28E28t8VT4aFdYO5aC7Re03" class="addon">
-        <div class="addon-name">Quarterly strategy session (45 min)</div>
-        <div class="addon-price">$200</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- EMAIL CAPTURE -->
-<section class="email-capture">
-  <div class="email-capture-inner">
-    <div class="eyebrow">Free Sample Report</div>
-    <h2>See exactly what you&rsquo;d get every month.</h2>
-    <p>Get our full 7-section competitive intelligence report for a Shopify pet accessories brand &mdash; real market data, real competitors, real action plan. No signup required.</p>
-    <div class="email-row">
-      <label for="sample-email-2" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
-      <input type="email" id="sample-email-2" placeholder="your@email.com" aria-label="Email address for sample report" class="email-input">
-      <button onclick="requestSample2(this)" class="btn-primary" style="white-space:nowrap">Send Me the Sample</button>
-    </div>
-    <p class="email-disclaimer">No spam. Just the report. Unsubscribe anytime.</p>
-  </div>
-</section>
-<script>
-function requestSample2(btn) {
-  const emailInput = document.getElementById('sample-email-2');
-  const e = emailInput.value;
-  if (!e || !e.includes('@')) { alert('Please enter a valid email.'); return; }
-  btn.disabled = true;
-  // Open the PDF directly
-  window.open('/RivalDrop_sample_report.pdf', '_blank');
-  // Notify Simon via mailto (fallback lead capture)
-  const mailLink = document.createElement('a');
-  mailLink.href = 'mailto:simonlpaige@gmail.com?subject=' + encodeURIComponent('RivalDrop Lead: ' + e) + '&body=' + encodeURIComponent('New sample report request from: ' + e + '\nTime: ' + new Date().toISOString());
-  mailLink.click();
-  btn.textContent = '\u2713 Report opened!';
-  btn.style.background = '#10B981';
-  emailInput.value = '';
-}
-</script>
-
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="faq-inner">
-    <div class="faq-header">
-      <div class="section-label">FAQ</div>
-      <h2>Questions</h2>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Is this just a data dump? I don&rsquo;t want more data. <span class="faq-icon">+</span></div>
-      <div class="faq-a">No. The action plan section is what differentiates RivalDrop. Every report ends with 3&ndash;5 specific, prioritized moves to make based on what we found. You get insight, not just information.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Who&rsquo;s behind RivalDrop? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Simon Paige &mdash; a Shopify brand owner who got tired of being blindsided by competitor moves. Not a consultant, not an agency. An operator who built the service he wished existed. Every report is reviewed by a human, not just generated by AI.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Can I see a sample before paying? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes &mdash; that&rsquo;s the whole point of the sample report section above. Enter your email and we&rsquo;ll send you the full 12-page report for a fictional pet accessories brand. Real competitors, real data, real action plan.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How is this different from tools like Semrush or SpyFu? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Those tools give you dashboards. RivalDrop gives you a curated brief. You&rsquo;d spend 5&ndash;10 hours/month running those tools properly. We do it for you and surface only what matters, with context and recommendations.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What if I only have 1&ndash;2 competitors? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Most clients think they have 2&ndash;3 until we start digging. We often identify additional competitors targeting your same customers from a different angle. Competitor discovery is included in your first report.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What&rsquo;s the money-back guarantee? <span class="faq-icon">+</span></div>
-      <div class="faq-a">If your first report doesn&rsquo;t deliver clear, actionable value &mdash; just say so. Full refund, no questions asked. We keep clients because the reports are useful, not because they&rsquo;re locked in.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How accurate is the ad spend data? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Ad spend estimates are directional &mdash; we use multiple signals to establish ranges, not exact figures. We&rsquo;re transparent about confidence levels. Creative strategy and messaging insights are precise; spend numbers are best treated as &ldquo;in the ballpark.&rdquo;</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Do I need to sign a contract? <span class="faq-icon">+</span></div>
-      <div class="faq-a">No contracts. Month-to-month. Cancel with one email before your next billing date. We keep clients because the reports are useful, not because they&rsquo;re locked in.</div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner">
-    <h2>Start knowing.<br><em>Stop guessing.</em></h2>
-    <p>Your competitors are making moves every month. Now you&rsquo;ll know exactly what they are &mdash; and what to do about it. First report in 5 business days.</p>
-    <a href="#pricing" class="btn-primary" style="font-size:1.05rem;padding:16px 32px">See Pricing &mdash; From $149/mo</a>
-    <div class="final-cta-meta">
-      <span>🛡️ 30-day guarantee</span>
-      <span>&middot;</span>
-      <span>📅 No contract</span>
-      <span>&middot;</span>
-      <span>✓ Cancel anytime</span>
-      <span>&middot;</span>
-      <span>⚡ First report in 5 days</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="section-label">Contact</div>
-    <h2>Have questions?</h2>
-    <p class="sub">Drop a message or book a free 15-minute call. No pressure, no pitch &mdash; just answers.</p>
-    <form id="contact-form" class="contact-form">
+  <!-- How it works -->
+  <section id="how-it-works" class="section container">
+    <h2>How it works</h2>
+    <p class="muted" style="margin-bottom: var(--sp-7);">You tell us who to watch. We watch them. Once a week, we send you a report of everything that changed. If nothing changed, we say so. That's it.</p>
+    <div class="triplet">
       <div>
-        <label class="form-label" for="contact-name">Your name</label>
-        <input type="text" id="contact-name" class="form-input" required placeholder="Jane Smith">
+        <div style="margin-bottom: var(--sp-3); color: var(--signal);">
+          <!-- Lucide: user-plus -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        </div>
+        <h3>You name competitors</h3>
+        <p class="muted" style="font-size: 0.875rem;">Tell us who to watch. Two competitors, five, ten. Give us their website, their Google listing, their Shopify store. We take it from there.</p>
       </div>
       <div>
-        <label class="form-label" for="contact-email">Email</label>
-        <input type="email" id="contact-email" class="form-input" required placeholder="jane@yourstore.com">
+        <div style="margin-bottom: var(--sp-3); color: var(--signal);">
+          <!-- Lucide: eye -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>RivalDrop watches them</h3>
+        <p class="muted" style="font-size: 0.875rem;">We check their pricing pages, Google profiles, Shopify storefronts, and ad copy on a regular cadence. Automated, persistent, and quiet.</p>
       </div>
       <div>
-        <label class="form-label" for="contact-message">Message</label>
-        <textarea id="contact-message" class="form-input" required rows="4" placeholder="What can we help with?"></textarea>
+        <div style="margin-bottom: var(--sp-3); color: var(--signal);">
+          <!-- Lucide: mail -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <h3>You get a weekly report</h3>
+        <p class="muted" style="font-size: 0.875rem;">A short, plain-English email. What changed, who changed it, and when. If something big moves mid-week, we flag it the same day.</p>
       </div>
-      <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message</button>
-    </form>
-    <div class="contact-links">
-      <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a>
-      <a href="https://cal.com/home-media-h1099p/15min">Book a free call &rarr;</a>
     </div>
-  </div>
-</section>
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function(ev) {
-  ev.preventDefault();
-  const btn = this.querySelector('button[type=submit]');
-  const name = document.getElementById('contact-name').value;
-  const email = document.getElementById('contact-email').value;
-  const msg = document.getElementById('contact-message').value;
-  btn.disabled = true;
-  btn.textContent = 'Sending\u2026';
-  try {
-    const res = await fetch('/.netlify/functions/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message: msg })
-    });
-    if (!res.ok) throw new Error('Send failed');
-    btn.textContent = '\u2713 Sent!';
-    btn.style.background = '#10B981';
-    this.reset();
-  } catch(e) {
-    btn.textContent = 'Error \u2014 email us instead';
-    btn.style.background = '#EF4444';
-    btn.disabled = false;
-  }
-});
-</script>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div><span class="footer-logo">Rival<span>Drop</span></span> &nbsp;&middot;&nbsp; Competitive Intelligence for Shopify Brands</div>
-  <nav class="footer-nav">
-    <a href="#about">About</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-    <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a>
+  <hr class="rule container">
+
+  <!-- What we watch -->
+  <section class="section container">
+    <h2>What we watch</h2>
+    <div class="watch-list" style="margin-top: var(--sp-6);">
+      <div class="watch-item">
+        <span class="watch-item__label">Pricing pages</span>
+        <span class="watch-item__desc">Price increases, new tiers, discontinued plans, promotional pricing. Tracked with timestamps.</span>
+      </div>
+      <div class="watch-item">
+        <span class="watch-item__label">Google Business listings</span>
+        <span class="watch-item__desc">Description changes, new photos, hours updates, review velocity. The public face of a local competitor.</span>
+      </div>
+      <div class="watch-item">
+        <span class="watch-item__label">Shopify storefronts</span>
+        <span class="watch-item__desc">New products, removed SKUs, collection changes, theme updates. The catalog tells a story.</span>
+      </div>
+      <div class="watch-item">
+        <span class="watch-item__label">Ad copy (where detectable)</span>
+        <span class="watch-item__desc">Changes to Google Ads headlines, new messaging angles, seasonal campaigns appearing or disappearing.</span>
+      </div>
+      <div class="watch-item">
+        <span class="watch-item__label">Product catalogs</span>
+        <span class="watch-item__desc">New launches, bundle changes, inventory signals, category expansions. What they sell and how they frame it.</span>
+      </div>
+      <div class="watch-item">
+        <span class="watch-item__label">Promotions and sales</span>
+        <span class="watch-item__desc">Discount codes, seasonal offers, flash sales, loyalty programs. When they run them and how deep the cuts go.</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule container">
+
+  <!-- Sample report panel -->
+  <section class="section container">
+    <div class="report-panel">
+      <div class="report-panel__title">Your weekly report</div>
+      <div class="report-panel__date">April 14 - April 21, 2026</div>
+
+      <div class="report-panel__item">
+        Brookside Outfitters (your top competitor) updated their pricing page on Tuesday. Starter plan went up $20/mo.
+        <span class="badge badge--price-change">price change</span>
+      </div>
+      <div class="report-panel__item">
+        Three of your five tracked competitors updated their Google Business descriptions this week.
+        <span class="badge badge--updated">updated</span>
+      </div>
+      <div class="report-panel__item">
+        Westside Coffee Co launched a new loyalty program. Details below.
+        <span class="badge badge--new">new</span>
+      </div>
+
+      <div class="report-panel__footer">
+        <a href="/RivalDrop_sample_report.pdf" class="btn btn--secondary">Read the full sample report (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Empty-state honesty callout -->
+  <section class="callout container">
+    <h2>When nothing happens, we say so.</h2>
+    <p>Nothing significant from your tracked competitors this week. They updated no pricing, posted no new products, and made no changes to their Google listings we could detect. We'll keep watching. Here's the full list of what we checked.</p>
+    <p>Most competitive intel tools would rather send noise than admit silence. We'd rather say nothing happened when nothing happened.</p>
+  </section>
+
+  <!-- Two products row -->
+  <section id="plans" class="section container">
+    <h2>Two products. Pick the one that fits.</h2>
+    <div class="two-col" style="margin-top: var(--sp-6);">
+      <a href="/local/" class="price-card" style="text-decoration: none;">
+        <div class="price-card__name">RivalDrop /local</div>
+        <div class="price-card__price">$99-149/mo</div>
+        <p class="price-card__desc">For KC small businesses watching local competitors. Google listings, pricing pages, and reviews for the shops in your market.</p>
+        <span class="btn btn--primary" style="margin-top: auto; text-align: center;">See /local plans</span>
+      </a>
+      <a href="/services/" class="price-card" style="text-decoration: none;">
+        <div class="price-card__name">RivalDrop for Shopify</div>
+        <div class="price-card__price">$149-247/mo</div>
+        <p class="price-card__desc">For online stores watching e-commerce competitors. Shopify storefronts, product catalogs, and pricing deltas tracked weekly.</p>
+        <span class="btn btn--primary" style="margin-top: auto; text-align: center;">See Shopify plans</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div>RivalDrop</div>
+  <div class="site-footer__right">
+    <span>A brand of Groundlayer LLC.</span>
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
-    <a href="/onboard.html">Onboarding</a>
-  </nav>
+    <a href="https://groundlayer.co">groundlayer.co</a>
+  </div>
 </footer>
 
-<script>
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    const item = q.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  });
-});
-</script>
 </body>
 </html>
