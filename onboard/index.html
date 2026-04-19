@@ -3,265 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RivalDrop &mdash; Client Onboarding</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4CA;</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;background:#0B1426;color:#fff;min-height:100vh;padding:24px}
-.container{max-width:640px;margin:0 auto;padding:40px 0}
-.logo{font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;margin-bottom:40px}
-.logo span{color:#2563EB}
-h1{font-size:1.8rem;font-weight:700;margin-bottom:8px}
-.subtitle{color:#9CA3AF;margin-bottom:32px;line-height:1.6}
-.time-note{background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);border-radius:10px;padding:14px 18px;font-size:.85rem;color:#60a5fa;margin-bottom:36px;display:flex;align-items:center;gap:10px}
-.form-group{margin-bottom:24px}
-label{display:block;font-size:.9rem;font-weight:600;margin-bottom:8px}
-.hint{font-size:.8rem;color:#9CA3AF;margin-bottom:8px}
-input[type="text"],input[type="email"],input[type="url"],textarea,select{width:100%;background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;color:#fff;font-family:inherit;font-size:.9rem;transition:border .2s}
-input:focus,textarea:focus,select:focus{outline:none;border-color:#2563EB}
-textarea{resize:vertical;min-height:100px}
-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239CA3AF' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
-select option{background:#1a2744;color:#fff}
-.competitor-block{background:#1a2744;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:20px;margin-bottom:12px}
-.competitor-block h3{font-size:.85rem;font-weight:600;color:#60a5fa;margin-bottom:12px}
-.competitor-block .form-group{margin-bottom:14px}
-.competitor-block .form-group:last-child{margin-bottom:0}
-.add-btn{background:none;border:1px dashed rgba(255,255,255,.15);border-radius:10px;padding:12px;width:100%;color:#9CA3AF;font-family:inherit;font-size:.85rem;cursor:pointer;margin-bottom:24px;transition:border .2s,color .2s}
-.add-btn:hover{border-color:#2563EB;color:#60a5fa}
-.divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin:32px 0}
-.submit-btn{background:#2563EB;color:#fff;border:none;padding:16px 32px;border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;width:100%;transition:opacity .2s}
-.submit-btn:hover{opacity:.85}
-.submit-btn:disabled{opacity:.5;cursor:not-allowed}
-.success{display:none;text-align:center;padding:60px 20px}
-.success h2{font-size:1.5rem;margin-bottom:12px}
-.success p{color:#9CA3AF}
-</style>
+<title>RivalDrop - Onboarding</title>
+<meta name="description" content="Tell us who to watch. RivalDrop onboarding takes about 5 minutes.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-<div class="container">
-  <div class="logo">Rival<span>Drop</span></div>
 
-  <div id="form-section">
-    <h1>Client Onboarding</h1>
-    <p class="subtitle">Tell us about your business and who to watch. This takes about 5 minutes and is everything we need to start your first report.</p>
-    <div class="time-note">Takes ~5 minutes. Your first report will be delivered within 5 business days.</div>
+<a href="#main" class="skip-nav">Skip to main content</a>
 
-    <form id="onboard-form">
-      <!-- YOUR BUSINESS -->
-      <h2 style="font-size:1.1rem;margin-bottom:16px;color:#60a5fa">About Your Business</h2>
-      <div class="form-group">
-        <label>Your name *</label>
-        <input type="text" name="name" required>
-      </div>
-      <div class="form-group">
-        <label>Email *</label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label>Your store name *</label>
-        <input type="text" name="store_name" required>
-      </div>
-      <div class="form-group">
-        <label>Store URL *</label>
-        <input type="url" name="store_url" required placeholder="https://yourstore.com">
-      </div>
-      <div class="form-group">
-        <label>What do you sell? *</label>
-        <input type="text" name="niche" required placeholder="e.g., premium dog accessories, organic skincare, home decor">
-      </div>
-      <div class="form-group">
-        <label>Approximate monthly revenue</label>
-        <select name="revenue">
-          <option value="">Prefer not to say</option>
-          <option value="under-50k">Under $50K/mo</option>
-          <option value="50k-100k">$50K&ndash;$100K/mo</option>
-          <option value="100k-250k">$100K&ndash;$250K/mo</option>
-          <option value="250k-500k">$250K&ndash;$500K/mo</option>
-          <option value="500k+">$500K+/mo</option>
-        </select>
-      </div>
+<header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/" class="site-nav__logo" aria-label="RivalDrop home">
+      <img src="/assets/logo.svg" alt="RivalDrop" height="32">
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="mailto:simon@rivaldrop.com">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <hr class="divider">
+<main id="main">
 
-      <!-- COMPETITORS -->
-      <h2 style="font-size:1.1rem;margin-bottom:8px;color:#60a5fa">Your Competitors</h2>
-      <p class="hint" style="margin-bottom:16px">List the competitors you want us to track. Include as much as you know &mdash; we'll fill in the gaps.</p>
+  <section class="section container--narrow">
+    <h1>Welcome. Here's what happens next.</h1>
+    <p class="muted" style="margin-bottom: var(--sp-7);">Onboarding takes about 5 minutes. You tell us who to watch, we confirm the list, and your first report arrives within 7 days.</p>
 
-      <div id="competitors">
-        <div class="competitor-block">
-          <h3>Competitor 1 *</h3>
-          <div class="form-group">
-            <label>Company / brand name</label>
-            <input type="text" name="comp1_name" required>
-          </div>
-          <div class="form-group">
-            <label>Website URL</label>
-            <input type="url" name="comp1_url" placeholder="https://competitor.com">
-          </div>
-          <div class="form-group">
-            <label>What concerns you most about them?</label>
-            <input type="text" name="comp1_concern" placeholder="e.g., they keep undercutting our prices">
-          </div>
+    <ol class="steps-list">
+      <li>
+        <div>
+          <strong>You tell us who to watch.</strong>
+          <p class="muted" style="font-size: 0.875rem; margin-top: var(--sp-1);">Name the competitors you care about. Give us their website, Google listing, or Shopify store URL. Two competitors is enough to start. You can add more later.</p>
         </div>
-
-        <div class="competitor-block">
-          <h3>Competitor 2</h3>
-          <div class="form-group">
-            <label>Company / brand name</label>
-            <input type="text" name="comp2_name">
-          </div>
-          <div class="form-group">
-            <label>Website URL</label>
-            <input type="url" name="comp2_url" placeholder="https://competitor.com">
-          </div>
-          <div class="form-group">
-            <label>What concerns you most about them?</label>
-            <input type="text" name="comp2_concern">
-          </div>
+      </li>
+      <li>
+        <div>
+          <strong>We confirm the list.</strong>
+          <p class="muted" style="font-size: 0.875rem; margin-top: var(--sp-1);">Simon reviews your competitors and replies within 24 hours to confirm what we'll track and how often.</p>
         </div>
-
-        <div class="competitor-block">
-          <h3>Competitor 3</h3>
-          <div class="form-group">
-            <label>Company / brand name</label>
-            <input type="text" name="comp3_name">
-          </div>
-          <div class="form-group">
-            <label>Website URL</label>
-            <input type="url" name="comp3_url" placeholder="https://competitor.com">
-          </div>
-          <div class="form-group">
-            <label>What concerns you most about them?</label>
-            <input type="text" name="comp3_concern">
-          </div>
+      </li>
+      <li>
+        <div>
+          <strong>First report within 7 days.</strong>
+          <p class="muted" style="font-size: 0.875rem; margin-top: var(--sp-1);">Your first weekly report lands in your inbox. After that, reports arrive every week on the same day.</p>
         </div>
-      </div>
-
-      <button type="button" class="add-btn" onclick="addCompetitor()">+ Add another competitor</button>
-
-      <hr class="divider">
-
-      <!-- PRIORITIES -->
-      <h2 style="font-size:1.1rem;margin-bottom:16px;color:#60a5fa">Your Priorities</h2>
-      <div class="form-group">
-        <label>What matters most to you? *</label>
-        <p class="hint">Pick the top 2&ndash;3 areas you want us to focus on.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
-          <label style="background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:400;cursor:pointer;display:flex;align-items:center;gap:8px">
-            <input type="checkbox" name="priority" value="pricing" style="width:auto"> Competitor pricing changes
-          </label>
-          <label style="background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:400;cursor:pointer;display:flex;align-items:center;gap:8px">
-            <input type="checkbox" name="priority" value="ads" style="width:auto"> Ad creative & spend
-          </label>
-          <label style="background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:400;cursor:pointer;display:flex;align-items:center;gap:8px">
-            <input type="checkbox" name="priority" value="products" style="width:auto"> New product launches
-          </label>
-          <label style="background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:400;cursor:pointer;display:flex;align-items:center;gap:8px">
-            <input type="checkbox" name="priority" value="seo" style="width:auto"> SEO & content moves
-          </label>
-          <label style="background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:400;cursor:pointer;display:flex;align-items:center;gap:8px">
-            <input type="checkbox" name="priority" value="social" style="width:auto"> Social & brand strategy
-          </label>
-          <label style="background:#1a2744;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:.85rem;font-weight:400;cursor:pointer;display:flex;align-items:center;gap:8px">
-            <input type="checkbox" name="priority" value="all" style="width:auto"> All of the above
-          </label>
+      </li>
+      <li>
+        <div>
+          <strong>Edit anytime.</strong>
+          <p class="muted" style="font-size: 0.875rem; margin-top: var(--sp-1);">Want to add a competitor, drop one, or change what we focus on? Email <a href="mailto:simon@rivaldrop.com">simon@rivaldrop.com</a> anytime.</p>
         </div>
-      </div>
+      </li>
+    </ol>
 
-      <div class="form-group">
-        <label>Anything else we should know?</label>
-        <textarea name="notes" placeholder="Upcoming launches, recent competitive threats, specific products to watch, etc."></textarea>
-      </div>
+    <hr class="rule">
 
-      <button type="submit" class="submit-btn" id="submit-btn">Submit &amp; Start My First Report</button>
-    </form>
+    <h2>Send us your competitors</h2>
+    <p class="muted" style="margin-bottom: var(--sp-6);">The fastest way to get started: email Simon with the names and URLs of the competitors you want tracked. Include anything specific you want us to watch for.</p>
+    <a href="mailto:simon@rivaldrop.com?subject=RivalDrop%20onboarding%20-%20my%20competitors" class="btn btn--primary">Email simon@rivaldrop.com</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div>RivalDrop</div>
+  <div class="site-footer__right">
+    <span>A brand of Groundlayer LLC.</span>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
   </div>
+</footer>
 
-  <div class="success" id="success-section">
-    <div style="font-size:48px;margin-bottom:20px">&#128640;</div>
-    <h2>You're all set!</h2>
-    <p>We've received your onboarding info and are starting research immediately.<br>Your first report will be delivered within 5 business days.</p>
-    <p style="margin-top:20px;color:#60a5fa">Questions? Email <a href="mailto:support@rivaldrop.com" style="color:#60a5fa">support@rivaldrop.com</a></p>
-  </div>
-</div>
-
-<script>
-let compCount = 3;
-function addCompetitor() {
-  if (compCount >= 7) return;
-  compCount++;
-  const div = document.createElement('div');
-  div.className = 'competitor-block';
-  div.innerHTML = `<h3>Competitor ${compCount}</h3>
-    <div class="form-group"><label>Company / brand name</label><input type="text" name="comp${compCount}_name"></div>
-    <div class="form-group"><label>Website URL</label><input type="url" name="comp${compCount}_url" placeholder="https://competitor.com"></div>
-    <div class="form-group"><label>What concerns you most about them?</label><input type="text" name="comp${compCount}_concern"></div>`;
-  document.getElementById('competitors').appendChild(div);
-}
-
-document.getElementById('onboard-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
-
-  const fd = new FormData(e.target);
-  const data = {};
-  fd.forEach((v, k) => {
-    if (k === 'priority') {
-      if (!data.priorities) data.priorities = [];
-      data.priorities.push(v);
-    } else {
-      data[k] = v;
-    }
-  });
-
-  // Build competitors list
-  const competitors = [];
-  for (let i = 1; i <= compCount; i++) {
-    const name = data[`comp${i}_name`];
-    if (name) competitors.push({ name, url: data[`comp${i}_url`] || '', concern: data[`comp${i}_concern`] || '' });
-  }
-
-  // Build email body
-  const lines = [
-    `<h2>New RivalDrop Client Onboarding</h2>`,
-    `<p><strong>Name:</strong> ${data.name}</p>`,
-    `<p><strong>Email:</strong> ${data.email}</p>`,
-    `<p><strong>Store:</strong> ${data.store_name} &mdash; <a href="${data.store_url}">${data.store_url}</a></p>`,
-    `<p><strong>Niche:</strong> ${data.niche}</p>`,
-    `<p><strong>Revenue:</strong> ${data.revenue || 'Not disclosed'}</p>`,
-    `<hr>`,
-    `<h3>Competitors</h3>`,
-    ...competitors.map((c, i) => `<p><strong>${i+1}. ${c.name}</strong>${c.url ? ` &mdash; <a href="${c.url}">${c.url}</a>` : ''}${c.concern ? `<br>Concern: ${c.concern}` : ''}</p>`),
-    `<hr>`,
-    `<p><strong>Priorities:</strong> ${(data.priorities || []).join(', ')}</p>`,
-    `<p><strong>Notes:</strong> ${data.notes || 'None'}</p>`
-  ];
-
-  // Submission temporarily routed via mailto fallback while we finish the server-side handler.
-  // (Previous inline Resend call removed - the API key was client-visible. Do not restore.)
-  const subject = `New Client Onboarding: ${data.store_name || '(no store)'}`;
-  const bodyText = [
-    `Name: ${data.name || ''}`,
-    `Email: ${data.email || ''}`,
-    `Store: ${data.store_name || ''} - ${data.store_url || ''}`,
-    `Niche: ${data.niche || ''}`,
-    `Revenue: ${data.revenue || 'not disclosed'}`,
-    ``,
-    `Competitors:`,
-    ...competitors.map((c, i) => `  ${i+1}. ${c.name}${c.url ? ' - ' + c.url : ''}${c.concern ? ' (concern: ' + c.concern + ')' : ''}`),
-    ``,
-    `Priorities: ${(data.priorities || []).join(', ')}`,
-    `Notes: ${data.notes || 'none'}`
-  ].join('\n');
-  const mailto = `mailto:hello@rivaldrop.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-  window.location.href = mailto;
-
-  document.getElementById('form-section').style.display = 'none';
-  document.getElementById('success-section').style.display = 'block';
-});
-</script>
 </body>
 </html>
