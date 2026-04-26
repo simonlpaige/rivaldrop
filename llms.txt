@@ -1,0 +1,49 @@
+# RivalDrop
+
+> Seven AI analysts watch your competitors, your reputation, and your market. One short email every Monday tells you the three moves worth making this week. Built for Shopify brands; a separate /local product serves Kansas City small businesses.
+
+## What we offer
+RivalDrop is a competitive-intelligence system for Shopify brands. Seven analysts run continuously:
+- Price Watch
+- Restock Pulse
+- Reputation Radar
+- New Entrant Scanner
+- Ad and creative tracking
+- Catalog and SKU drift
+- Customer-language and review-theme drift
+
+You get one Monday email with the three highest-impact moves for the week.
+
+## Who it's for
+- Shopify brands doing $500K to $20M in annual revenue.
+- Founders or marketing leads who want one high-signal weekly briefing instead of a dashboard nobody opens.
+
+## How it works
+1. Onboard: tell us your competitors, your category, your geo. Takes 15 minutes.
+2. Each week, the seven analysts run. Drift, restocks, price moves, reputation shifts get scored.
+3. Monday morning, one email lands. Three moves, ranked by impact, with the evidence behind each.
+
+## Pricing
+Pricing varies by competitor count and analyst depth. Start at the [services page](https://rivaldrop.com/services/) or contact us for a quote.
+
+## RivalDrop /local
+A separate product for Kansas City brick-and-mortar small businesses. Same idea, different competitors. See https://rivaldrop.com/local/.
+
+## Important pages
+- [Home](https://rivaldrop.com/)
+- [Services](https://rivaldrop.com/services/)
+- [Sample Monday email](https://rivaldrop.com/sample/)
+- [Sample for Durston Gear](https://rivaldrop.com/sample/durston/) - real example
+- [Local (KC small business)](https://rivaldrop.com/local/)
+- [Onboarding](https://rivaldrop.com/onboard/)
+- [Privacy](https://rivaldrop.com/privacy.html)
+- [Terms](https://rivaldrop.com/terms.html)
+
+## Contact
+- Email: hello@rivaldrop.com
+- Support: support@rivaldrop.com
+
+## Parent company
+RivalDrop is a DBA of Groundlayer LLC, a Missouri limited liability company. Sole member: Simon L. Paige.
+
+Last updated: 2026-04-26
