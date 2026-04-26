@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- rivalDrop square icon. 64x64 mark only with orange drop. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="rivalDrop">
-  <title>rivalDrop</title>
+<!-- rivalDrop symbol only. Use where the lockup will not fit (favicons, social square crops). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="rivalDrop mark">
+  <title>rivalDrop mark</title>
   <line x1="4" y1="10" x2="32" y2="32" stroke="#0E1116" stroke-width="2.5" stroke-linecap="round"/>
   <line x1="4" y1="54" x2="32" y2="32" stroke="#0E1116" stroke-width="2.5" stroke-linecap="round"/>
   <line x1="32" y1="32" x2="60" y2="32" stroke="#0E1116" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>

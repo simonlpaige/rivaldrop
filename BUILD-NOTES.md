@@ -1,54 +1,46 @@
-# BUILD-NOTES.md - RivalDrop Radar Rebuild
+# BUILD-NOTES.md - rivalDrop v1.0 brand refresh
 
-Date: 2026-04-19
-Branch: radar-rebuild-2026-04-19
+Date: 2026-04-25
+Scope: Whole-site refresh against the v1.0 Brand System.
 
-## What was rebuilt vs. audited-only
+## What changed
 
-### Rebuilt from scratch
-- **index.html** - Complete rewrite. New Radar flavor homepage with all sections from BRIEF.md: hero (left-aligned, BRAND.md copy verbatim), how-it-works triplet with Lucide icons, what-we-watch list, sample report panel, empty-state honesty callout, two-product pricing row. No JS. No analytics.
-- **css/site.css** - New single stylesheet with all Radar tokens as CSS custom properties. Panel, badge, table, timestamp components. Responsive breakpoints at 640/900/1200px. Print styles. prefers-reduced-motion support.
-- **local/index.html** - New page. RivalDrop /local product page with Scout ($99) and Pro ($149) pricing, four vertical use cases (barbers, HVAC, restaurants, retail).
-- **services/index.html** - Complete rewrite. Was a local SEO services page; now the Shopify product page with Growth ($149) and Scale ($247) tiers, four vertical use cases.
-- **privacy.html** - Complete rewrite. Scoped to rivaldrop.com, Groundlayer LLC as legal party. Includes the "we only look at public information" statement from BRIEF.md. Plain English.
-- **terms.html** - Complete rewrite. Scoped to rivaldrop.com, Groundlayer LLC as legal party. Plain language, no legalese fog.
-- **onboard/index.html** - Complete rewrite. Was a full JS-driven form with mailto fallback. Now a static onboarding page with numbered steps explaining the process and a mailto CTA to simon@rivaldrop.com. No JS required.
+### New visual system
+- Palette moved to **paper / ink / hot orange**:
+  - `#F6F5F1` paper, `#0E1116` ink, `#FF5B1F` accent (the drop). Plus three ink levels and two paper levels.
+  - Single-accent rule: only one element per visible viewport glows orange. The previous palette could light up multiple things at once. Now the eye lands on the one thing that matters.
+- Type stack: **Source Serif 4** for display + body, **Inter Tight** for UI labels and buttons, **JetBrains Mono** for data and timestamps.
+- The mark is now a **Feynman vertex**: two solid lines come in from the upper- and lower-left at 45 degrees, meet at a vertex, and a dashed leg exits to the right with an orange drop at the end. Five SVG variants live in `assets/` (primary lockup, mark only, reverse for dark, icon, favicon).
+- All marks use **outlined paths** for the wordmark (rivalDrop in Source Serif 4 Medium with italic Drop in accent) so the lockup renders identically when loaded as an `<img>` from external referrers without depending on the webfont.
+- New **og:image** at `assets/og-image.png` (1200x630). Headline asks the question.
 
-### Reskinned / audited
-- **welcome/index.html** - Reskinned to Radar. Was using DM Sans + Space Mono on dark-navy; now uses Source Serif 4 + Inter + JetBrains Mono with proper Radar tokens via site.css. Structure preserved (post-signup confirmation with steps).
-- **sample/index.html** - Reskinned to Radar. Was a bare meta-refresh redirect to the PDF; now a proper sample report preview page with the report panel component and a PDF download link.
-- **onboarding/index.html** - Was already a meta-refresh redirect to /onboard/. Updated to Radar styling with a visible fallback link and proper message.
+### Voice rewrite
+- Positioning broadened from "Shopify brands" to "competitive intel for sales teams." Account executives prepping for renewals, sales leaders running competitive deals, founders selling against funded competitors. Verticals like HVAC and restaurants surface as concrete examples, not separate landings.
+- Voice rules: start with a question, use an analogy, cite the evidence. Plain before poetic. Honest about limits.
+- Banished words: leverage, synergy, robust, holistic, ecosystem, AI-powered, intelligent, smart (without saying how), game-changing, disruptive, revolutionary, solutions, stakeholders, alignment, motion. Verified zero hits across all rebuilt copy.
+- Hard rule: no em dashes anywhere. Verified zero hits.
 
-### Untouched
-- .nojekyll, CNAME, RivalDrop_sample_report.pdf, simon-paige.jpg, fiverr_gig_image.png
-- logo-stripe.svg, logo-stripe-720.png, icon-stripe.svg, icon-stripe-512.png (Stripe checkout assets)
+### Pricing
+- Single tier kept at **$149/month**. The previous Scout / Command / Command+ split is collapsed. Honest about what's in and what isn't.
 
-## onboard/ vs. onboarding/ consolidation
+### Pages rebuilt
+- `index.html` - new hero with the central question, the analogy section, signal examples, who it's for, what you get, pricing card, final CTA.
+- `onboard/index.html` - email-capture flow with Resend submission preserved exactly. Numbered steps explain what happens after.
+- `services/index.html` - long-form walkthrough of the morning brief, watchlist, dashboard, and an honest "what we don't do" section.
+- `welcome/index.html` - post-signup confirmation page.
+- `privacy.html` and `terms.html` - re-skinned to the new system. Legal substance kept verbatim. Em dashes in legal copy were treated as punctuation, not substance, and replaced with commas or colons.
 
-The existing onboarding/index.html was already a meta-refresh redirect to /onboard/. Decision: **keep both**. onboard/ is the canonical page with full content. onboarding/ remains a redirect with a visible fallback link saying "Taking you to /onboard/". Both now use Radar styling. This preserves any existing inbound links to either URL.
+### Pages folded in / redirected
+- `local/index.html` - the old local-businesses landing. Folded into the home story, page now meta-refreshes to /. Keeps inbound links alive.
+- `onboarding/index.html` - was already a meta-refresh to /onboard/. Left as-is.
+- `sample/index.html` - was a sample report preview page in the previous voice. Replaced with a meta-refresh to the PDF, matching the old Netlify /sample redirect behavior. The file itself is at /RivalDrop_sample_report.pdf.
 
-## Assets
+### Assets cleaned up
+- Removed: old `css/site.css`, `fiverr_gig_image.png`, `icon-512.png`, `logo-720.png` (no longer referenced).
+- Kept: `logo-stripe-720.png`, `logo-stripe.svg`, `icon-stripe-512.png`, `icon-stripe.svg`, `simon-paige.jpg`. Stripe checkout may hotlink the stripe-branded marks. Photo may be referenced from social bios.
 
-- **assets/logo.svg** - Copied from modules/groundlayer/design-systems/logos/rivaldrop.svg (the new Radar wordmark with signal-green ping dot).
-- **assets/favicon.svg** - New: signal-cyan ping dot on night-sky square. Replaces the old emoji-based favicon across all pages.
-- **logo.svg, logo-720.png, icon.svg, icon-512.png** - Legacy files left in place; not referenced by new pages. The new assets/logo.svg and assets/favicon.svg supersede them. Legacy PNGs kept for any external references.
+## Source of truth
 
-## Voice-check scan results
+The canonical brand system lives in the workspace at `modules/groundlayer/factory/brands/rivaldrop/docs/_refresh-staging/brand.md`. The corresponding execution briefs are at `modules/groundlayer/factory/brands/rivaldrop/docs/REFRESH-EXECUTION-BRIEF.md` and `REFRESH-PHASE-2-BRIEF.md`.
 
-Scanned all HTML files for:
-- **Banned words** (unlock, leverage, seamless, etc.) - zero hits
-- **Em dashes / en dashes** (mdash, ndash, U+2013, U+2014) - zero hits
-- **Gradients** in CSS - zero hits
-- **border-radius > 8px** - zero hits
-- **Non-approved fonts** - only Source Serif 4, Inter, JetBrains Mono used
-- **Emoji in UI chrome** - zero (only used in meta-description and non-chrome contexts removed)
-- **Uppercase button labels** - zero
-- **JavaScript for content visibility** - zero; all pages render fully without JS
-- **Stock photography / AI faces** - none used
-
-## Flagged concerns
-
-1. **mailto CTAs**: All signup/contact CTAs use mailto:simon@rivaldrop.com. This is correct per BRIEF.md ("CTAs link back to Simon's email for setup") but should be replaced with a proper form or Stripe checkout links when ready.
-2. **Legacy logo/icon files**: The old logo.svg, logo-720.png, icon.svg, icon-512.png are still at root. They're not referenced by any rebuilt page but exist for backward compatibility. Can be removed once no external service references them.
-3. **Google Fonts as only external request**: The brief says "No analytics beyond Google Fonts." Google Fonts is the sole external dependency. Consider self-hosting fonts to eliminate this if page weight allows.
-4. **PDF sample report**: /RivalDrop_sample_report.pdf is linked from homepage, sample page, local page, and Shopify page. File exists at repo root and is ~312KB.
+The deploy pipeline is GitHub Pages reading from `simonlpaige/rivaldrop` master branch with custom domain `rivaldrop.com`. CNAME is at the repo root.

@@ -1,0 +1,592 @@
+/* rivalDrop site styles. Brand v1.0.
+   Phase 1 stylesheet: tokens + component primitives.
+   The HTML rebuild lands in Phase 2; until then the existing pages will look
+   broken because they still ship their own inline <style> blocks.
+
+   Two rules to keep in mind while reading this file:
+   1. Single accent. Orange is for the one hottest thing on screen. If two
+      things glow, neither does.
+   2. No effects. No box-shadows, gradients, glow, mesh. Ink, paper, rule, drop.
+*/
+
+:root {
+  /* Color */
+  --ink: #0E1116;
+  --ink-2: #1A1F27;
+  --ink-3: #3A4250;
+  --paper: #F6F5F1;
+  --paper-2: #ECEBE5;
+  --rule: #D8D6CD;
+  --accent: #FF5B1F;
+
+  /* Functional, data only. Never marketing surfaces. */
+  --win: #1F7A4D;
+  --risk: #B54023;
+  --watch: #C8932A;
+
+  /* Type */
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --font-ui: "Inter Tight", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Type scale, per brand.md section 3 */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(72px, 11vw, 168px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  color: var(--ink);
+  margin: 0 0 0.4em;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  color: var(--ink);
+  margin: 0 0 0.5em;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--ink);
+  margin: 0 0 0.5em;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: var(--ink);
+  margin: 0 0 0.4em;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+p { margin: 0 0 1em; }
+
+small, .small {
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+/* Italics are rare and earned. One word per sentence that needs to lean in. */
+em { font-style: italic; }
+
+/* Mono labels and eyebrows */
+.mono, .label, .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.eyebrow { margin: 0 0 16px; display: block; }
+
+/* Numbers always tabular. Apply via class or via data column. */
+.num,
+.tabular,
+table td,
+table th {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Links keep ink color, pick up accent on hover. */
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color 120ms ease;
+}
+
+a:hover { color: var(--accent); }
+
+/* Buttons. 4 px radius. Inter Tight 500, 13 px. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  padding: 12px 18px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Pills. 999 px radius. JetBrains Mono 10.5 px, uppercase. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  color: var(--ink-2);
+}
+
+.pill-hot {
+  border-color: var(--accent);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.pill-hot::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Cards. 6 px radius. 1 px rule border. paper-2 fill. */
+.card {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.card-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.card-dark h1,
+.card-dark h2,
+.card-dark h3 { color: var(--paper); }
+
+.card-dark a { color: var(--paper); }
+
+/* Tables. Rules between rows. Mono on data columns. */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  color: var(--ink-2);
+}
+
+table .data,
+table td.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 48px 0;
+}
+
+/* Functional data states. Data UI only. Not for marketing surfaces. */
+.win   { color: var(--win); }
+.risk  { color: var(--risk); }
+.watch { color: var(--watch); }
+
+/* The drop. Reserve for the single hottest element on a viewport. */
+.accent-text { color: var(--accent); }
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+/* Focus rings. Visible, ink-toned, no glow. */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Phase 2 additions. Nav, layout, forms, footer, plate, numbered list.
+   These cover patterns the brand-system styles.css didn't include but every
+   marketing page needs. New tokens are avoided; everything composes ink/paper. */
+
+/* Top nav. Lockup left, link cluster right, single primary action. */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.nav-lockup { display: inline-flex; align-items: center; }
+.nav-lockup img { display: block; height: 28px; width: auto; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* Section spacing. Generous on home, tighter on legal/welcome via .section-tight. */
+.section { padding: 96px 0; }
+.section-tight { padding: 56px 0; }
+.section + .section { border-top: 1px solid var(--rule); }
+
+/* Hero. Display headline and a single short paragraph. */
+.hero { padding: 88px 0 96px; }
+.hero .lead { max-width: 640px; }
+
+/* Two-column responsive. Stacks under 820 px. */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 820px) {
+  .grid-2 { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Three-column card row. Stacks under 820. */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 820px) {
+  .grid-3 { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* Numbered list. Replaces bullets with mono prefixes (01, 02, 03). */
+.numbered { list-style: none; padding: 0; margin: 0; }
+
+.numbered > li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.numbered > li:first-child { border-top: 1px solid var(--rule); }
+
+.numbered .num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  padding-top: 4px;
+}
+
+.numbered h3 { margin-bottom: 4px; }
+.numbered p { margin: 0; }
+
+/* Plate. The pricing card. paper-2 fill, generous padding, centered headline. */
+.plate {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 40px;
+}
+
+.plate-figure {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.plate-figure .per {
+  font-size: 17px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--ink-3);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+
+/* Diagram block. Inline SVG illustrations styled for the analogy section. */
+.diagram {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 28px;
+}
+
+.diagram svg { display: block; width: 100%; height: auto; }
+
+/* Form primitives. Keep them quiet; rely on the rule and ink palette. */
+form { display: block; }
+
+.field { margin-bottom: 22px; }
+
+.field label,
+.field > .label-text {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.field .hint {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: -2px 0 8px;
+}
+
+.input,
+.textarea,
+.select,
+input[type="text"].input,
+input[type="email"].input,
+input[type="url"].input,
+textarea.textarea,
+select.select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 11px 14px;
+  line-height: 1.4;
+  transition: border-color 120ms ease;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.textarea { resize: vertical; min-height: 110px; }
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4l3 3 3-3' fill='none' stroke='%233A4250' stroke-width='1.4'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+/* Checkbox row. Inline labels with quiet borders. */
+.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.checkbox-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink-2);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+
+.checkbox-row label:has(input:checked) {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.checkbox-row input { accent-color: var(--ink); }
+
+/* The competitor block on onboard.html. Quiet card with inset fields. */
+.field-group {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 22px;
+  margin-bottom: 14px;
+}
+
+.field-group .field:last-child { margin-bottom: 0; }
+.field-group .group-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.add-row {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink-3);
+  background: transparent;
+  border: 1px dashed var(--rule);
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.add-row:hover { color: var(--ink); border-color: var(--ink); }
+
+/* Footer. Mark + tagline + link cluster + mono date label. */
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: 36px 0 48px;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.footer-mark img { display: block; height: 32px; width: auto; }
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.footer-links a { color: var(--ink-2); text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+
+.footer-meta {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Legal pages. Constrained reading width per brief. */
+.legal-body { max-width: 640px; }
+.legal-body h2 { font-size: 22px; margin: 36px 0 12px; }
+.legal-body p, .legal-body li { font-size: 16px; }
+.legal-body ul { padding-left: 20px; margin: 0 0 1em; }
+.legal-body li { margin-bottom: 6px; }
