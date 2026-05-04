@@ -1,64 +1,42 @@
 # rivalDrop
 
-> rivalDrop watches a small known set of competitors for a sales team or a direct-to-consumer brand and sends a four-minute morning brief, five days a week. One tier, $149 a month, three rivals. Built for teams whose buyers compare them against three named competitors, not fifty unknown ones.
+rivalDrop sells weekly competitor moves for Shopify operators.
 
-## What we offer
+## Core offer
 
-- **The morning brief.** Email Monday through Friday, in the inbox by 7am local. Three or four bullets. Each one names a rival, a number, and a date. Designed to be the thing you skim before your 9am call or your team standup.
-- **The watchlist dashboard.** A live web view of every captured signal on every rival you watch. Filter by rival, by signal type, by date.
-- **A 15-minute setup call.** We agree on the three rivals and what you want to learn.
-- **Sample brief, before you sign up.** A 12-page PDF with real rivals and real numbers.
+Every Monday, rivalDrop tells a Shopify team:
 
-## Who it is for
+- what competitors changed
+- what customers noticed
+- what move is worth making next
 
-- Sales teams in mid-market and SMB B2B, especially account executives and sales leaders running renewals, ramps, and bake-offs.
-- Founders selling against funded competitors who keep changing the goalposts.
-- Small Shopify and direct-to-consumer brands in cottage, ultralight, outdoor, and apparel categories where the buyer chooses between three direct rivals.
-
-## Who it is not for
-
-- Anyone selling to a wide unknown universe of buyers with no short list of named rivals.
-- Enterprise sales orgs that need battle cards integrated with Salesforce. Pick Crayon or Klue.
-- Teams expecting daily personal calls and a dedicated analyst.
-
-## How it works
-
-1. 15-minute setup call. Tell us your three rivals and the moves that matter to your buyer.
-2. We set up a watch on their public surfaces: pricing pages, careers pages, product pages, blog posts, ad libraries, leadership pages, and a small set of secondary sources.
-3. About 80 percent of capture is automated. A human reviews the captured changes and decides what is worth surfacing.
-4. The first brief lands within five business days. Briefs continue Monday through Friday after that.
+The first wedge is ultralight backpacking and outdoor gear brands on Shopify. The product tracks public surfaces: product launches, price changes, restocks, sold-out pages, reviews, forums, SEO gaps, and visible ad or messaging shifts.
 
 ## Pricing
 
-- **rivalDrop, monthly:** $149 a month. Three rivals tracked. Morning brief Monday through Friday. Live dashboard. 15-minute setup. Cancel any time.
-- **First-week guarantee:** if we cannot capture useful signal in week one, you do not pay for week two.
+- rivalDrop monthly: $149 per month.
+- Starts with three rivals.
+- First-week guarantee: if week one cannot capture useful signal, the customer does not pay for week two.
 
 ## Important pages
 
-- [Home](https://rivaldrop.com/): the offer in plain language.
-- [How it works](https://rivaldrop.com/services.html): the morning brief, the watchlist, the dashboard, what we do not do, and how to start.
-- [rivalDrop for Shopify](https://rivaldrop.com/shopify.html): the use case for direct-to-consumer brands.
-- [Alternatives](https://rivaldrop.com/alternatives.html): honest comparison vs Crayon, Klue, Kompyte, Owler, page-change tools, and DIY.
-- [Sample brief](https://rivaldrop.com/RivalDrop_sample_report.pdf): 12 pages, real rivals, real numbers.
-- [Onboard](https://rivaldrop.com/onboard.html): the 15-minute setup form.
+- Home: https://rivaldrop.com/
+- Shopify use case: https://rivaldrop.com/shopify.html
+- Sample brief: https://rivaldrop.com/sample/
+- How it works: https://rivaldrop.com/services.html
+- Alternatives: https://rivaldrop.com/alternatives.html
+- Onboard: https://rivaldrop.com/onboard.html
 
-## What we do not do
+## Boundaries
 
-- We do not make competitive recommendations. We tell you what changed and what we think it might mean.
-- We do not sell aggregated client watchlists as a market intelligence product.
-- We do not replace your sales process. The brief makes a good one sharper.
+- Public data only.
+- No bypassing logins or private accounts.
+- Client watchlists are not resold as a data product.
+- The brief gives evidence and suggested moves, not magic certainty.
 
 ## Contact
 
-- Email: hello@rivaldrop.com
-- Setup call: https://cal.com/home-media-h1099p/15min
-- Service area: remote and global.
+Email: hello@rivaldrop.com
+Setup: https://cal.com/home-media-h1099p/15min
 
-## About
-
-- Owner: rivalDrop is part of Groundlayer LLC, a Missouri holding company.
-- Tagline: Watch. Capture. Drop.
-
-## Last updated
-
-2026-05-03
+Last updated: 2026-05-04
