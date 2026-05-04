@@ -144,13 +144,13 @@
         <span class="label-text">Pick the signal types that matter most</span>
         <p class="hint">Two or three is usually right.</p>
         <div class="checkbox-row">
-          <label><input type="checkbox" name="priority" value="pricing"> Pricing changes</label>
-          <label><input type="checkbox" name="priority" value="hiring"> Hiring posts</label>
-          <label><input type="checkbox" name="priority" value="product"> Product moves</label>
-          <label><input type="checkbox" name="priority" value="positioning"> Positioning shifts</label>
-          <label><input type="checkbox" name="priority" value="ads"> Ad creative</label>
-          <label><input type="checkbox" name="priority" value="seo"> SEO and content</label>
-          <label><input type="checkbox" name="priority" value="champions"> Champion or exec moves</label>
+          <label><input type="checkbox" name="priority" value="pricing" aria-label="Pricing changes"> Pricing changes</label>
+          <label><input type="checkbox" name="priority" value="hiring" aria-label="Hiring posts"> Hiring posts</label>
+          <label><input type="checkbox" name="priority" value="product" aria-label="Product moves"> Product moves</label>
+          <label><input type="checkbox" name="priority" value="positioning" aria-label="Positioning shifts"> Positioning shifts</label>
+          <label><input type="checkbox" name="priority" value="ads" aria-label="Ad creative"> Ad creative</label>
+          <label><input type="checkbox" name="priority" value="seo" aria-label="SEO and content"> SEO and content</label>
+          <label><input type="checkbox" name="priority" value="champions" aria-label="Champion or exec moves"> Champion or exec moves</label>
         </div>
       </div>
 
@@ -178,7 +178,7 @@
 <section class="section" id="success-section" style="display: none;">
   <div class="container" style="max-width: 720px;">
     <span class="eyebrow">Got it</span>
-    <h1>You're on the watchlist.</h1>
+    <h2>You're on the watchlist.</h2>
     <p class="lead">Thanks. Your details are with us. Here's what happens next.</p>
     <ol class="numbered" style="margin-top: 32px;">
       <li>
@@ -241,9 +241,9 @@ function addCompetitor() {
   const n = String(compCount).padStart(2, '0');
   div.innerHTML = `
     <span class="group-label">Rival ${n}</span>
-    <div class="field"><label>Name</label><input type="text" name="comp${compCount}_name" class="input"></div>
-    <div class="field"><label>Website</label><input type="url" name="comp${compCount}_url" class="input" placeholder="https://rival.com"></div>
-    <div class="field"><label>What concerns you most about them?</label><input type="text" name="comp${compCount}_concern" class="input"></div>`;
+    <div class="field"><label>Name</label><input type="text" name="comp${compCount}_name" class="input" aria-label="Rival ${n} name"></div>
+    <div class="field"><label>Website</label><input type="url" name="comp${compCount}_url" class="input" placeholder="https://rival.com" aria-label="Rival ${n} website"></div>
+    <div class="field"><label>What concerns you most about them?</label><input type="text" name="comp${compCount}_concern" class="input" aria-label="Rival ${n} concern"></div>`;
   document.getElementById('competitors').appendChild(div);
 }
 
@@ -270,37 +270,21 @@ document.getElementById('onboard-form').addEventListener('submit', async (e) => 
     if (name) competitors.push({ name, url: data[`comp${i}_url`] || '', concern: data[`comp${i}_concern`] || '' });
   }
 
-  const lines = [
-    `<h2>New rivalDrop watchlist signup</h2>`,
-    `<p><strong>Name:</strong> ${data.name}</p>`,
-    `<p><strong>Email:</strong> ${data.email}</p>`,
-    `<p><strong>Company:</strong> ${data.company} (${data.company_url || 'no url'})</p>`,
-    `<p><strong>Role:</strong> ${data.role || 'not given'}</p>`,
-    `<hr>`,
-    `<h3>Rivals</h3>`,
-    ...competitors.map((c, i) => `<p><strong>${String(i+1).padStart(2,'0')}. ${c.name}</strong>${c.url ? ` (${c.url})` : ''}${c.concern ? `<br>Concern: ${c.concern}` : ''}</p>`),
-    `<hr>`,
-    `<p><strong>Signal priorities:</strong> ${(data.priorities || []).join(', ') || 'none picked'}</p>`,
-    `<p><strong>Goal:</strong> ${data.goal || 'not given'}</p>`,
-    `<p><strong>Notes:</strong> ${data.notes || 'none'}</p>`
-  ];
-
-  try {
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer re_JXHraKrH_JW3QLSUEGL6E48VYA294y6Uk',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: 'rivalDrop Onboarding <onboarding@rivaldrop.com>',
-        to: ['simonlpaige@gmail.com', 'botlarry14@gmail.com'],
-        subject: `New rivalDrop signup: ${data.company}`,
-        html: lines.join('\n'),
-        reply_to: data.email
-      })
-    });
-  } catch(err) { /* Silent fail: still show success so client flow isn't blocked. */ }
+  const mailSubject = encodeURIComponent(`New rivalDrop signup: ${data.company || 'new company'}`);
+  const mailBody = encodeURIComponent([
+    `Name: ${data.name || ''}`,
+    `Email: ${data.email || ''}`,
+    `Company: ${data.company || ''} (${data.company_url || 'no url'})`,
+    `Role: ${data.role || 'not given'}`,
+    '',
+    'Rivals:',
+    ...competitors.map((c, i) => `${String(i+1).padStart(2,'0')}. ${c.name}${c.url ? ` (${c.url})` : ''}${c.concern ? ` - Concern: ${c.concern}` : ''}`),
+    '',
+    `Signal priorities: ${(data.priorities || []).join(', ') || 'none picked'}`,
+    `Goal: ${data.goal || 'not given'}`,
+    `Notes: ${data.notes || 'none'}`
+  ].join('\n'));
+  window.location.href = `mailto:hello@rivaldrop.com?subject=${mailSubject}&body=${mailBody}`;
 
   document.getElementById('form-section').style.display = 'none';
   document.getElementById('success-section').style.display = 'block';
