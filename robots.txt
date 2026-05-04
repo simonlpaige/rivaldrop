@@ -1,6 +1,7 @@
-# robots.txt for rivaldrop.com
 User-agent: *
 Allow: /
+Disallow: /onboard.html
+Disallow: /welcome.html
 
 # AI agent overview: /llms.txt
 Sitemap: https://rivaldrop.com/sitemap.xml

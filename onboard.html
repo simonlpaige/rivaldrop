@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start the watchlist, rivalDrop onboarding</title>
+<meta name="description" content="Tell us your top three rivals and what you're trying to learn. Fifteen minutes, then we get to work.">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script defer data-domain="rivaldrop.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="canonical" href="https://rivaldrop.com/onboard.html">
+  <meta property="og:title" content="RivalDrop Onboarding">
+  <meta property="og:description" content="Start your RivalDrop onboarding.">
+  <meta property="og:url" content="https://rivaldrop.com/onboard.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"RivalDrop Onboarding","description":"Start your RivalDrop onboarding.","url":"https://rivaldrop.com/onboard.html"}
+  </script></head>
+<body>
+
+<header class="nav">
+  <a href="/" class="nav-lockup" aria-label="rivalDrop, home">
+    <img src="/assets/logo.svg" alt="rivalDrop">
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/services.html">How it works</a>
+    <a href="/index.html#pricing">Pricing</a>
+    <a href="/RivalDrop_sample_report.pdf">Sample brief</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="form-section">
+  <div class="container" style="max-width: 720px;">
+    <span class="eyebrow">Setup, fifteen minutes</span>
+    <h1>Start the watchlist.</h1>
+    <p class="lead">Tell us who your top three rivals are and what you're trying to learn. We confirm by the next morning, set up the watch within two business days, and the first brief lands by Friday.</p>
+
+    <form id="onboard-form" novalidate>
+
+      <h2 style="margin-top: 48px;">About you</h2>
+
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" class="input" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Work email</label>
+        <input type="email" id="email" name="email" class="input" required>
+      </div>
+
+      <div class="field">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" class="input" required>
+      </div>
+
+      <div class="field">
+        <label for="role">What's your role?</label>
+        <input type="text" id="role" name="role" class="input" placeholder="Account executive, sales lead, founder, ...">
+      </div>
+
+      <div class="field">
+        <label for="company_url">Company website</label>
+        <input type="url" id="company_url" name="company_url" class="input" placeholder="https://yourcompany.com">
+      </div>
+
+      <hr>
+
+      <h2>The three rivals</h2>
+      <p class="hint" style="margin-top: -8px; margin-bottom: 18px;">Start with the three you most want to know about. We can add more after the first week.</p>
+
+      <div id="competitors">
+        <div class="field-group">
+          <span class="group-label">Rival 01</span>
+          <div class="field">
+            <label for="comp1_name">Name</label>
+            <input type="text" id="comp1_name" name="comp1_name" class="input" required>
+          </div>
+          <div class="field">
+            <label for="comp1_url">Website</label>
+            <input type="url" id="comp1_url" name="comp1_url" class="input" placeholder="https://rival.com">
+          </div>
+          <div class="field">
+            <label for="comp1_concern">What concerns you most about them?</label>
+            <input type="text" id="comp1_concern" name="comp1_concern" class="input" placeholder="They keep undercutting our renewal price.">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <span class="group-label">Rival 02</span>
+          <div class="field">
+            <label for="comp2_name">Name</label>
+            <input type="text" id="comp2_name" name="comp2_name" class="input">
+          </div>
+          <div class="field">
+            <label for="comp2_url">Website</label>
+            <input type="url" id="comp2_url" name="comp2_url" class="input" placeholder="https://rival.com">
+          </div>
+          <div class="field">
+            <label for="comp2_concern">What concerns you most about them?</label>
+            <input type="text" id="comp2_concern" name="comp2_concern" class="input">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <span class="group-label">Rival 03</span>
+          <div class="field">
+            <label for="comp3_name">Name</label>
+            <input type="text" id="comp3_name" name="comp3_name" class="input">
+          </div>
+          <div class="field">
+            <label for="comp3_url">Website</label>
+            <input type="url" id="comp3_url" name="comp3_url" class="input" placeholder="https://rival.com">
+          </div>
+          <div class="field">
+            <label for="comp3_concern">What concerns you most about them?</label>
+            <input type="text" id="comp3_concern" name="comp3_concern" class="input">
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="add-row" onclick="addCompetitor()">Add another rival</button>
+
+      <hr>
+
+      <h2>What are you trying to learn?</h2>
+
+      <div class="field">
+        <span class="label-text">Pick the signal types that matter most</span>
+        <p class="hint">Two or three is usually right.</p>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="priority" value="pricing"> Pricing changes</label>
+          <label><input type="checkbox" name="priority" value="hiring"> Hiring posts</label>
+          <label><input type="checkbox" name="priority" value="product"> Product moves</label>
+          <label><input type="checkbox" name="priority" value="positioning"> Positioning shifts</label>
+          <label><input type="checkbox" name="priority" value="ads"> Ad creative</label>
+          <label><input type="checkbox" name="priority" value="seo"> SEO and content</label>
+          <label><input type="checkbox" name="priority" value="champions"> Champion or exec moves</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="goal">What deal or moment is this for?</label>
+        <p class="hint">A specific renewal, a bake-off, a new territory, a fundraise pitch. The more concrete the better.</p>
+        <textarea id="goal" name="goal" class="textarea"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" class="textarea" placeholder="Champions, past compete losses, pricing context, anything that helps us read the signal."></textarea>
+      </div>
+
+      <p style="margin-top: 32px;">
+        <button type="submit" class="btn btn-primary" id="submit-btn">Start the watchlist</button>
+      </p>
+      <p class="small">We'll reply within one business day to confirm your watchlist.</p>
+
+    </form>
+
+  </div>
+</section>
+
+<section class="section" id="success-section" style="display: none;">
+  <div class="container" style="max-width: 720px;">
+    <span class="eyebrow">Got it</span>
+    <h1>You're on the watchlist.</h1>
+    <p class="lead">Thanks. Your details are with us. Here's what happens next.</p>
+    <ol class="numbered" style="margin-top: 32px;">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <h3>We confirm by the next morning</h3>
+          <p>You'll get an email from <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a> within one business day. Reply with anything you forgot.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <h3>We set up the watch in two business days</h3>
+          <p>Pricing pages, hiring boards, product surfaces, and the other signals you asked for. Anything we can't capture cleanly, we'll tell you.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <h3>You get the first brief by Friday</h3>
+          <p>Three or four bullets. Four minutes to read. Sent at 7am local. The watchlist dashboard goes live the same day.</p>
+        </div>
+      </li>
+    </ol>
+    <p style="margin-top: 32px;">
+      <a href="https://buy.stripe.com/bJe4gB4FD36B8Eubz07Re00" class="btn btn-primary">Complete your subscription, $149</a>
+    </p>
+    <p class="small" style="margin-top: 12px;">First month is fully refundable. If we can't capture useful signal in week one, you don't pay for week two.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <a href="/" class="footer-mark" aria-label="rivalDrop">
+        <img src="/assets/logo-mark.svg" alt="rivalDrop">
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/services.html">How it works</a>
+        <a href="/index.html#pricing">Pricing</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a>
+      </nav>
+    </div>
+    <p style="margin-top: 18px; margin-bottom: 0;">rivalDrop is part of Groundlayer LLC, a Missouri holding company.</p>
+    <p class="footer-meta">fig onboard &middot; MMXXVI</p>
+  </div>
+</footer>
+
+<script>
+let compCount = 3;
+function addCompetitor() {
+  if (compCount >= 7) return;
+  compCount++;
+  const div = document.createElement('div');
+  div.className = 'field-group';
+  const n = String(compCount).padStart(2, '0');
+  div.innerHTML = `
+    <span class="group-label">Rival ${n}</span>
+    <div class="field"><label>Name</label><input type="text" name="comp${compCount}_name" class="input"></div>
+    <div class="field"><label>Website</label><input type="url" name="comp${compCount}_url" class="input" placeholder="https://rival.com"></div>
+    <div class="field"><label>What concerns you most about them?</label><input type="text" name="comp${compCount}_concern" class="input"></div>`;
+  document.getElementById('competitors').appendChild(div);
+}
+
+document.getElementById('onboard-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const fd = new FormData(e.target);
+  const data = {};
+  fd.forEach((v, k) => {
+    if (k === 'priority') {
+      if (!data.priorities) data.priorities = [];
+      data.priorities.push(v);
+    } else {
+      data[k] = v;
+    }
+  });
+
+  const competitors = [];
+  for (let i = 1; i <= compCount; i++) {
+    const name = data[`comp${i}_name`];
+    if (name) competitors.push({ name, url: data[`comp${i}_url`] || '', concern: data[`comp${i}_concern`] || '' });
+  }
+
+  const lines = [
+    `<h2>New rivalDrop watchlist signup</h2>`,
+    `<p><strong>Name:</strong> ${data.name}</p>`,
+    `<p><strong>Email:</strong> ${data.email}</p>`,
+    `<p><strong>Company:</strong> ${data.company} (${data.company_url || 'no url'})</p>`,
+    `<p><strong>Role:</strong> ${data.role || 'not given'}</p>`,
+    `<hr>`,
+    `<h3>Rivals</h3>`,
+    ...competitors.map((c, i) => `<p><strong>${String(i+1).padStart(2,'0')}. ${c.name}</strong>${c.url ? ` (${c.url})` : ''}${c.concern ? `<br>Concern: ${c.concern}` : ''}</p>`),
+    `<hr>`,
+    `<p><strong>Signal priorities:</strong> ${(data.priorities || []).join(', ') || 'none picked'}</p>`,
+    `<p><strong>Goal:</strong> ${data.goal || 'not given'}</p>`,
+    `<p><strong>Notes:</strong> ${data.notes || 'none'}</p>`
+  ];
+
+  try {
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer re_JXHraKrH_JW3QLSUEGL6E48VYA294y6Uk',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'rivalDrop Onboarding <onboarding@rivaldrop.com>',
+        to: ['simonlpaige@gmail.com', 'botlarry14@gmail.com'],
+        subject: `New rivalDrop signup: ${data.company}`,
+        html: lines.join('\n'),
+        reply_to: data.email
+      })
+    });
+  } catch(err) { /* Silent fail: still show success so client flow isn't blocked. */ }
+
+  document.getElementById('form-section').style.display = 'none';
+  document.getElementById('success-section').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
