@@ -1,42 +1,42 @@
 # rivalDrop
 
-rivalDrop sells weekly competitor moves for Shopify operators.
+rivalDrop sells 48-hour Shopify competitor teardown reports.
 
 ## Core offer
 
-Every Monday, rivalDrop tells a Shopify team:
+The buyer sends:
 
-- what competitors changed
-- what customers noticed
-- what move is worth making next
+- their public store URL
+- 2, 4, or 6 competitor store URLs or brand names
+- an optional focus area such as pricing, SEO, product gaps, restocks, or bundles
 
-The first wedge is ultralight backpacking and outdoor gear brands on Shopify. The product tracks public surfaces: product launches, price changes, restocks, sold-out pages, reviews, forums, SEO gaps, and visible ad or messaging shifts.
+rivalDrop returns a finished PDF brief. The report uses public storefront data only and includes practical notes on pricing gaps, catalog gaps, bestseller signals, stock-out or restock clues, SEO gaps on higher packages, and source notes.
 
-## Pricing
+## Packages
 
-- rivalDrop monthly: $149 per month.
-- Starts with three rivals.
-- First-week guarantee: if week one cannot capture useful signal, the customer does not pay for week two.
+- Recon: $49 one-time report, 2 competitors.
+- Field Report: $99 one-time report, 4 competitors, SEO gap list, stock-out/restock snapshot.
+- War Room: $149 one-time report, 6 competitors, plus one 30-day follow-up addendum.
+
+The Field Report is the default public offer.
 
 ## Important pages
 
 - Home: https://rivaldrop.com/
-- Shopify use case: https://rivaldrop.com/shopify.html
-- Sample brief: https://rivaldrop.com/sample/
-- How it works: https://rivaldrop.com/services.html
-- Alternatives: https://rivaldrop.com/alternatives.html
-- Onboard: https://rivaldrop.com/onboard.html
+- Sample PDF: https://rivaldrop.com/RivalDrop_sample_report.pdf
+- Privacy: https://rivaldrop.com/privacy.html
+- Terms: https://rivaldrop.com/terms.html
 
 ## Boundaries
 
 - Public data only.
-- No bypassing logins or private accounts.
-- Client watchlists are not resold as a data product.
-- The brief gives evidence and suggested moves, not magic certainty.
+- No Shopify admin access.
+- No passwords, private admin links, or customer data.
+- Non-Shopify competitors can be reviewed, but data may be lighter.
+- The brief gives evidence and suggested moves, not financial, legal, or professional advice.
 
-## Contact
+## Purchase path
 
-Email: hello@rivaldrop.com
-Setup: https://cal.com/home-media-h1099p/15min
+Orders are currently handled through the published Fiverr gig for the botlarry14 account.
 
-Last updated: 2026-05-04
+Last updated: 2026-06-15
