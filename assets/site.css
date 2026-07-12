@@ -648,10 +648,14 @@ select.select {
 .paper-list li { margin-bottom: 10px; }
 
 .price-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  display: flex;
+  justify-content: center;
   margin-top: 24px;
+}
+
+.price-grid > * {
+  width: 100%;
+  max-width: 420px;
 }
 
 .package-card {

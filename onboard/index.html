@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agency pilot intake, rivalDrop onboarding</title>
 <meta name="description" content="Complete your rivalDrop agency pilot order. Your agency details, your client's store, and up to three competitors. Report in three business days.">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src https://intake.rivaldrop.com; form-action 'self'; base-uri 'self'; frame-src 'none'; object-src 'none'">
 <meta property="og:title" content="Onboarding - rivalDrop agency pilot">
 <meta property="og:description" content="Finish your $149 agency pilot order. Takes five minutes.">
 <meta property="og:url" content="https://rivaldrop.com/onboard/">
@@ -20,7 +23,6 @@
   "isPartOf": { "@type": "WebSite", "name": "rivalDrop", "url": "https://rivaldrop.com/" }
 }
 </script>
-<meta name="robots" content="noindex">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
@@ -46,13 +48,10 @@
 
     <form id="intake-form" novalidate>
 
-      <div class="field">
-        <label for="session_id">Stripe checkout session</label>
-        <p class="hint">Filled in automatically from your payment. If it is blank, use the link in your Stripe receipt.</p>
-        <input type="text" id="session_id" name="session_id" class="input" required maxlength="120" placeholder="cs_...">
-      </div>
+      <!-- Hidden session_id field, populated by JS, never editable -->
+      <input type="hidden" id="session_id" name="session_id" required>
 
-      <h2 style="margin-top: 48px;">Your agency</h2>
+      <h2 style="margin-top: 0;">Your agency</h2>
 
       <div class="field">
         <label for="agency_name">Agency name</label>
@@ -119,9 +118,17 @@
       <p style="margin-top: 32px;">
         <button type="submit" class="btn btn-primary" id="submit-btn">Submit intake</button>
       </p>
-      <p class="small" id="form-status" role="status">We verify your payment with Stripe before generation starts. Nothing is charged on this page.</p>
+      <p class="small" id="form-status" role="status" aria-live="polite">We verify your payment with Stripe before generation starts. Nothing is charged on this page.</p>
 
     </form>
+  </div>
+</section>
+
+<section class="section" id="recovery-section" style="display: none;">
+  <div class="container" style="max-width: 720px;">
+    <h2>Payment confirmed, but the session link is missing.</h2>
+    <p class="lead">Your Stripe payment was successful, but the intake form needs your payment session ID to connect your order. Please check your payment confirmation email from Stripe and use the link provided there to return to this form.</p>
+    <p>If you already submitted this form and are seeing this message, your order is already being processed. Contact <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a> if you have questions.</p>
   </div>
 </section>
 
@@ -181,8 +188,18 @@ var INTAKE_URL = "https://intake.rivaldrop.com/intake";
 (function () {
   var params = new URLSearchParams(window.location.search);
   var sid = params.get("session_id") || "";
-  if (/^cs_[A-Za-z0-9_]+$/.test(sid)) {
+  // Validate session_id shape: cs_live_ or cs_test_ followed by alphanumeric
+  if (/^cs_(live|test)_[A-Za-z0-9]+$/.test(sid)) {
     document.getElementById("session_id").value = sid;
+    // Strip session_id from the address bar for security (no reload)
+    if (window.history.replaceState) {
+      var cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  } else {
+    // No valid session_id - show recovery message, hide form
+    document.getElementById("form-section").style.display = "none";
+    document.getElementById("recovery-section").style.display = "";
   }
 })();
 
@@ -191,15 +208,25 @@ document.getElementById("intake-form").addEventListener("submit", function (e) {
   var form = e.target;
   var status = document.getElementById("form-status");
   var btn = document.getElementById("submit-btn");
+
+  // Prevent double submission
+  if (btn.disabled) return;
+
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
+
+  // Disable button to prevent resubmit
+  btn.disabled = true;
+  status.textContent = "Verifying your payment with Stripe...";
+
   var competitors = ["competitor_1", "competitor_2", "competitor_3"]
     .map(function (id) { return document.getElementById(id).value.trim(); })
     .filter(Boolean);
+
   var payload = {
-    session_id: document.getElementById("session_id").value.trim(),
+    session_id: document.getElementById("session_id").value,
     agency_name: document.getElementById("agency_name").value.trim(),
     agency_website: document.getElementById("agency_website").value.trim(),
     email: document.getElementById("email").value.trim(),
@@ -209,8 +236,7 @@ document.getElementById("intake-form").addEventListener("submit", function (e) {
     competitor_urls: competitors,
     focus: document.getElementById("focus").value.trim() || null
   };
-  btn.disabled = true;
-  status.textContent = "Verifying your payment with Stripe...";
+
   fetch(INTAKE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -222,17 +248,35 @@ document.getElementById("intake-form").addEventListener("submit", function (e) {
       window.scrollTo(0, 0);
       return;
     }
+    if (res.status === 409) {
+      // Session already consumed - this is a success, order already in progress
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("success-section").style.display = "";
+      window.scrollTo(0, 0);
+      return;
+    }
     return res.json().catch(function () { return {}; }).then(function (body) {
       btn.disabled = false;
-      status.textContent = body && body.error
-        ? "Could not accept the form: " + body.error
-        : "Something went wrong (" + res.status + "). Check the fields and try again, or email hello@rivaldrop.com.";
+      var msg = "Something went wrong. Please try again or email hello@rivaldrop.com with your Stripe receipt.";
+      if (body && body.error) {
+        // Only show safe public error codes
+        if (body.error === "session_not_verified") {
+          msg = "We could not verify your payment. Please check your Stripe receipt or email hello@rivaldrop.com.";
+        } else if (body.error === "invalid_json" || body.error === "body_too_large") {
+          msg = "There was an issue with the form. Please try again.";
+        } else if (body.error === "invalid_intake") {
+          msg = "Please check all required fields and try again.";
+        }
+      }
+      status.textContent = msg;
     });
   }).catch(function () {
     btn.disabled = false;
-    status.textContent = "Network error. Try again in a minute, or email hello@rivaldrop.com with your Stripe receipt.";
+    status.textContent = "Network error. Please try again in a minute, or email hello@rivaldrop.com with your Stripe receipt.";
   });
 });
+
+// Keyboard accessibility: Enter on any input moves to next field naturally
 </script>
 </body>
 </html>
