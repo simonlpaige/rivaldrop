@@ -1,29 +1,31 @@
 # rivalDrop
 
-rivalDrop sells 48-hour Shopify competitor teardown reports.
+rivalDrop sells white-label competitor teardown reports to marketing agencies and ecommerce consultancies.
 
-## Core offer
+## Core offer: the $149 Agency Pilot
 
-The buyer sends:
+A one-time white-label competitor teardown PDF. The agency pays $149 once, fills in an intake form, and receives a finished report carrying the agency's own name and logo within three business days. There is no subscription and nothing recurring.
 
-- their public store URL
-- 2, 4, or 6 competitor store URLs or brand names
-- an optional focus area such as pricing, SEO, product gaps, restocks, or bundles
+The agency provides:
 
-rivalDrop returns a finished PDF brief. The report uses public storefront data only and includes practical notes on pricing gaps, catalog gaps, bestseller signals, stock-out or restock clues, SEO gaps on higher packages, and source notes.
+- agency name, website, and work email
+- an optional agency logo URL for report branding
+- the client's store name and public store URL
+- up to three competitor store URLs
+- an optional focus area such as pricing, SEO, product gaps, or restocks
 
-## Packages
+rivalDrop returns a finished PDF brief. The report uses public storefront data only and includes practical notes on pricing gaps, catalog gaps, bestseller signals, stock-out or restock clues, SEO gaps, and source notes for every material claim.
 
-- Recon: $49 one-time report, 2 competitors.
-- Field Report: $99 one-time report, 4 competitors, SEO gap list, stock-out/restock snapshot.
-- War Room: $149 one-time report, 6 competitors, plus one 30-day follow-up addendum.
+## Purchase path
 
-The Field Report is the default public offer.
+Payment is a Stripe one-time checkout: https://buy.stripe.com/5kQfZj4FD6iNg6W32u7Re0d
+After payment the buyer completes the intake form at https://rivaldrop.com/onboard/
 
 ## Important pages
 
 - Home: https://rivaldrop.com/
 - Sample PDF: https://rivaldrop.com/RivalDrop_sample_report.pdf
+- Free public teardowns: https://rivaldrop.com/teardowns/
 - Privacy: https://rivaldrop.com/privacy.html
 - Terms: https://rivaldrop.com/terms.html
 
@@ -33,10 +35,7 @@ The Field Report is the default public offer.
 - No Shopify admin access.
 - No passwords, private admin links, or customer data.
 - Non-Shopify competitors can be reviewed, but data may be lighter.
+- Reports are delivered to the purchasing agency, which resells or presents them under its own brand.
 - The brief gives evidence and suggested moves, not financial, legal, or professional advice.
 
-## Purchase path
-
-Orders are currently handled through the published Fiverr gig for the botlarry14 account.
-
-Last updated: 2026-06-15
+Last updated: 2026-07-11

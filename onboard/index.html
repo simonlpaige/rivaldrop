@@ -3,31 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start the watchlist, rivalDrop onboarding</title>
-<meta name="description" content="Tell us your top three rivals and what you're trying to learn. Fifteen minutes, then we get to work.">
-  <meta property="og:title" content="Onboarding - RivalDrop">
-  <meta property="og:description" content="Tell RivalDrop about your competitors, your category, and your geo. Takes 15 minutes.">
-  <meta property="og:url" content="https://rivaldrop.com/onboard/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://rivaldrop.com/onboard/">
-  <script type="application/ld+json">
+<title>Agency pilot intake, rivalDrop onboarding</title>
+<meta name="description" content="Complete your rivalDrop agency pilot order. Your agency details, your client's store, and up to three competitors. Report in three business days.">
+<meta property="og:title" content="Onboarding - rivalDrop agency pilot">
+<meta property="og:description" content="Finish your $149 agency pilot order. Takes five minutes.">
+<meta property="og:url" content="https://rivaldrop.com/onboard/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://rivaldrop.com/onboard/">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "RivalDrop Onboarding",
+  "name": "rivalDrop Agency Pilot Intake",
   "url": "https://rivaldrop.com/onboard/",
-  "isPartOf": { "@type": "WebSite", "name": "RivalDrop", "url": "https://rivaldrop.com/" }
+  "isPartOf": { "@type": "WebSite", "name": "rivalDrop", "url": "https://rivaldrop.com/" }
 }
 </script>
 <meta name="robots" content="noindex">
-
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
-<script defer data-domain="rivaldrop.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -36,7 +31,6 @@
     <img src="/assets/logo.svg" alt="rivalDrop">
   </a>
   <nav class="nav-links" aria-label="Primary">
-    <a href="/services/">How it works</a>
     <a href="/#pricing">Pricing</a>
     <a href="/RivalDrop_sample_report.pdf">Sample brief</a>
   </nav>
@@ -46,251 +40,199 @@
 
 <section class="hero" id="form-section">
   <div class="container" style="max-width: 720px;">
-    <span class="eyebrow">Setup, fifteen minutes</span>
-    <h1>Start the watchlist.</h1>
-    <p class="lead">Tell us who your top three rivals are and what you're trying to learn. We confirm by the next morning, set up the watch within two business days, and the first brief lands by Friday.</p>
+    <span class="eyebrow">Agency pilot / intake / five minutes</span>
+    <h1>Finish your pilot order.</h1>
+    <p class="lead">Thanks for the order. Tell us who the report is for and who we are tearing down. Your white-label PDF lands in your inbox within three business days.</p>
 
-    <form id="onboard-form" novalidate>
-
-      <h2 style="margin-top: 48px;">About you</h2>
+    <form id="intake-form" novalidate>
 
       <div class="field">
-        <label for="name">Your name</label>
-        <input type="text" id="name" name="name" class="input" required>
+        <label for="session_id">Stripe checkout session</label>
+        <p class="hint">Filled in automatically from your payment. If it is blank, use the link in your Stripe receipt.</p>
+        <input type="text" id="session_id" name="session_id" class="input" required maxlength="120" placeholder="cs_...">
+      </div>
+
+      <h2 style="margin-top: 48px;">Your agency</h2>
+
+      <div class="field">
+        <label for="agency_name">Agency name</label>
+        <p class="hint">Exactly as it should appear on the report cover.</p>
+        <input type="text" id="agency_name" name="agency_name" class="input" required maxlength="120">
+      </div>
+
+      <div class="field">
+        <label for="agency_website">Agency website</label>
+        <input type="url" id="agency_website" name="agency_website" class="input" required maxlength="300" placeholder="https://youragency.com">
       </div>
 
       <div class="field">
         <label for="email">Work email</label>
-        <input type="email" id="email" name="email" class="input" required>
+        <p class="hint">Use the same email you paid with so we can match the order. The report is delivered here.</p>
+        <input type="email" id="email" name="email" class="input" required maxlength="254">
       </div>
 
       <div class="field">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" class="input" required>
-      </div>
-
-      <div class="field">
-        <label for="role">What's your role?</label>
-        <input type="text" id="role" name="role" class="input" placeholder="Account executive, sales lead, founder, ...">
-      </div>
-
-      <div class="field">
-        <label for="company_url">Company website</label>
-        <input type="url" id="company_url" name="company_url" class="input" placeholder="https://yourcompany.com">
+        <label for="logo_url">Agency logo URL (optional)</label>
+        <p class="hint">A public https link to a PNG or SVG. We place it on the cover and footer.</p>
+        <input type="url" id="logo_url" name="logo_url" class="input" maxlength="300" placeholder="https://youragency.com/logo.png">
       </div>
 
       <hr>
 
-      <h2>The three rivals</h2>
-      <p class="hint" style="margin-top: -8px; margin-bottom: 18px;">Start with the three you most want to know about. We can add more after the first week.</p>
+      <h2>Your client</h2>
 
-      <div id="competitors">
-        <div class="field-group">
-          <span class="group-label">Rival 01</span>
-          <div class="field">
-            <label for="comp1_name">Name</label>
-            <input type="text" id="comp1_name" name="comp1_name" class="input" required>
-          </div>
-          <div class="field">
-            <label for="comp1_url">Website</label>
-            <input type="url" id="comp1_url" name="comp1_url" class="input" placeholder="https://rival.com">
-          </div>
-          <div class="field">
-            <label for="comp1_concern">What concerns you most about them?</label>
-            <input type="text" id="comp1_concern" name="comp1_concern" class="input" placeholder="They keep undercutting our renewal price.">
-          </div>
-        </div>
-
-        <div class="field-group">
-          <span class="group-label">Rival 02</span>
-          <div class="field">
-            <label for="comp2_name">Name</label>
-            <input type="text" id="comp2_name" name="comp2_name" class="input">
-          </div>
-          <div class="field">
-            <label for="comp2_url">Website</label>
-            <input type="url" id="comp2_url" name="comp2_url" class="input" placeholder="https://rival.com">
-          </div>
-          <div class="field">
-            <label for="comp2_concern">What concerns you most about them?</label>
-            <input type="text" id="comp2_concern" name="comp2_concern" class="input">
-          </div>
-        </div>
-
-        <div class="field-group">
-          <span class="group-label">Rival 03</span>
-          <div class="field">
-            <label for="comp3_name">Name</label>
-            <input type="text" id="comp3_name" name="comp3_name" class="input">
-          </div>
-          <div class="field">
-            <label for="comp3_url">Website</label>
-            <input type="url" id="comp3_url" name="comp3_url" class="input" placeholder="https://rival.com">
-          </div>
-          <div class="field">
-            <label for="comp3_concern">What concerns you most about them?</label>
-            <input type="text" id="comp3_concern" name="comp3_concern" class="input">
-          </div>
-        </div>
+      <div class="field">
+        <label for="store_name">Client store name</label>
+        <input type="text" id="store_name" name="store_name" class="input" required maxlength="120">
       </div>
 
-      <button type="button" class="add-row" onclick="addCompetitor()">Add another rival</button>
+      <div class="field">
+        <label for="store_url">Client store URL</label>
+        <p class="hint">Public storefront only. Never send admin links or passwords.</p>
+        <input type="url" id="store_url" name="store_url" class="input" required maxlength="300" placeholder="https://clientstore.com">
+      </div>
 
       <hr>
 
-      <h2>What are you trying to learn?</h2>
+      <h2>The competitors</h2>
+      <p class="hint" style="margin-top: -8px; margin-bottom: 18px;">Up to three public store URLs. One is enough to start; three gives the richest report.</p>
 
       <div class="field">
-        <span class="label-text">Pick the signal types that matter most</span>
-        <p class="hint">Two or three is usually right.</p>
-        <div class="checkbox-row">
-          <label><input type="checkbox" name="priority" value="pricing" aria-label="Pricing changes"> Pricing changes</label>
-          <label><input type="checkbox" name="priority" value="hiring" aria-label="Hiring posts"> Hiring posts</label>
-          <label><input type="checkbox" name="priority" value="product" aria-label="Product moves"> Product moves</label>
-          <label><input type="checkbox" name="priority" value="positioning" aria-label="Positioning shifts"> Positioning shifts</label>
-          <label><input type="checkbox" name="priority" value="ads" aria-label="Ad creative"> Ad creative</label>
-          <label><input type="checkbox" name="priority" value="seo" aria-label="SEO and content"> SEO and content</label>
-          <label><input type="checkbox" name="priority" value="champions" aria-label="Champion or exec moves"> Champion or exec moves</label>
-        </div>
+        <label for="competitor_1">Competitor 01</label>
+        <input type="url" id="competitor_1" name="competitor_1" class="input" required maxlength="300" placeholder="https://rival.com">
+      </div>
+      <div class="field">
+        <label for="competitor_2">Competitor 02 (optional)</label>
+        <input type="url" id="competitor_2" name="competitor_2" class="input" maxlength="300" placeholder="https://rival.com">
+      </div>
+      <div class="field">
+        <label for="competitor_3">Competitor 03 (optional)</label>
+        <input type="url" id="competitor_3" name="competitor_3" class="input" maxlength="300" placeholder="https://rival.com">
       </div>
 
       <div class="field">
-        <label for="goal">What deal or moment is this for?</label>
-        <p class="hint">A specific renewal, a bake-off, a new territory, a fundraise pitch. The more concrete the better.</p>
-        <textarea id="goal" name="goal" class="textarea"></textarea>
-      </div>
-
-      <div class="field">
-        <label for="notes">Anything else we should know?</label>
-        <textarea id="notes" name="notes" class="textarea" placeholder="Champions, past compete losses, pricing context, anything that helps us read the signal."></textarea>
+        <label for="focus">Focus area (optional)</label>
+        <p class="hint">Pricing, SEO, product gaps, restocks, bundles, or anything specific your client cares about.</p>
+        <textarea id="focus" name="focus" class="textarea" maxlength="500"></textarea>
       </div>
 
       <p style="margin-top: 32px;">
-        <button type="submit" class="btn btn-primary" id="submit-btn">Start the watchlist</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Submit intake</button>
       </p>
-      <p class="small">We'll reply within one business day to confirm your watchlist.</p>
+      <p class="small" id="form-status" role="status">We verify your payment with Stripe before generation starts. Nothing is charged on this page.</p>
 
     </form>
-
   </div>
 </section>
 
 <section class="section" id="success-section" style="display: none;">
   <div class="container" style="max-width: 720px;">
     <span class="eyebrow">Got it</span>
-    <h2>You're on the watchlist.</h2>
-    <p class="lead">Thanks. Your details are with us. Here's what happens next.</p>
+    <h2>Your pilot is in the queue.</h2>
+    <p class="lead">Payment matched, details received. Here is what happens next.</p>
     <ol class="numbered" style="margin-top: 32px;">
       <li>
         <span class="num">01</span>
         <div>
-          <h3>We confirm by the next morning</h3>
-          <p>You'll get an email from <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a> within one business day. Reply with anything you forgot.</p>
+          <h3>We verify and start digging</h3>
+          <p>Your order is verified against Stripe and moves straight into research. No action needed from you.</p>
         </div>
       </li>
       <li>
         <span class="num">02</span>
         <div>
-          <h3>We set up the watch in two business days</h3>
-          <p>Pricing pages, hiring boards, product surfaces, and the other signals you asked for. Anything we can't capture cleanly, we'll tell you.</p>
+          <h3>Quality check</h3>
+          <p>Every report passes an evidence check before it ships: every material claim keeps its source.</p>
         </div>
       </li>
       <li>
         <span class="num">03</span>
         <div>
-          <h3>You get the first brief by Friday</h3>
-          <p>Three or four bullets. Four minutes to read. Sent at 7am local. The watchlist dashboard goes live the same day.</p>
+          <h3>Delivery in three business days</h3>
+          <p>The white-label PDF arrives at your work email, branded with your agency name and logo, ready to hand to your client.</p>
         </div>
       </li>
     </ol>
-    <p style="margin-top: 32px;">
-      <a href="https://buy.stripe.com/bJe4gB4FD36B8Eubz07Re00" class="btn btn-primary">Complete your subscription, $149</a>
-    </p>
-    <p class="small" style="margin-top: 12px;">First month is fully refundable. If we can't capture useful signal in week one, you don't pay for week two.</p>
+    <p class="small">Questions meanwhile: <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a></p>
   </div>
 </section>
 
 </main>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-row">
-      <a href="/" class="footer-mark" aria-label="rivalDrop">
-        <img src="/assets/logo-mark.svg" alt="rivalDrop">
-      </a>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="/services/">How it works</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="mailto:hello@rivaldrop.com">hello@rivaldrop.com</a>
-      </nav>
+  <div class="container footer-row">
+    <div>
+      <a class="footer-mark" href="/" aria-label="rivalDrop home"><img src="/assets/logo.svg" alt="rivalDrop"></a>
+      <p>White-label competitor teardown reports for agencies. Part of Groundlayer LLC.</p>
     </div>
-    <p style="margin-top: 18px; margin-bottom: 0;">rivalDrop is part of Groundlayer LLC, a Missouri holding company.</p>
-    <p class="footer-meta">fig onboard &middot; MMXXVI</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </nav>
   </div>
 </footer>
 
 <script>
-let compCount = 3;
-function addCompetitor() {
-  if (compCount >= 7) return;
-  compCount++;
-  const div = document.createElement('div');
-  div.className = 'field-group';
-  const n = String(compCount).padStart(2, '0');
-  div.innerHTML = `
-    <span class="group-label">Rival ${n}</span>
-    <div class="field"><label>Name</label><input type="text" name="comp${compCount}_name" class="input" aria-label="Rival ${n} name"></div>
-    <div class="field"><label>Website</label><input type="url" name="comp${compCount}_url" class="input" placeholder="https://rival.com" aria-label="Rival ${n} website"></div>
-    <div class="field"><label>What concerns you most about them?</label><input type="text" name="comp${compCount}_concern" class="input" aria-label="Rival ${n} concern"></div>`;
-  document.getElementById('competitors').appendChild(div);
-}
+// Intake endpoint: the public tunnel host for the pipeline-agency server.
+// Set at deploy time; no secrets live in this file. Payment is verified
+// server-side with Stripe - the session id here is a lookup key, not proof.
+var INTAKE_URL = "https://intake.rivaldrop.com/intake";
 
-document.getElementById('onboard-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  const fd = new FormData(e.target);
-  const data = {};
-  fd.forEach((v, k) => {
-    if (k === 'priority') {
-      if (!data.priorities) data.priorities = [];
-      data.priorities.push(v);
-    } else {
-      data[k] = v;
-    }
-  });
-
-  const competitors = [];
-  for (let i = 1; i <= compCount; i++) {
-    const name = data[`comp${i}_name`];
-    if (name) competitors.push({ name, url: data[`comp${i}_url`] || '', concern: data[`comp${i}_concern`] || '' });
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var sid = params.get("session_id") || "";
+  if (/^cs_[A-Za-z0-9_]+$/.test(sid)) {
+    document.getElementById("session_id").value = sid;
   }
+})();
 
-  const mailSubject = encodeURIComponent(`New rivalDrop signup: ${data.company || 'new company'}`);
-  const mailBody = encodeURIComponent([
-    `Name: ${data.name || ''}`,
-    `Email: ${data.email || ''}`,
-    `Company: ${data.company || ''} (${data.company_url || 'no url'})`,
-    `Role: ${data.role || 'not given'}`,
-    '',
-    'Rivals:',
-    ...competitors.map((c, i) => `${String(i+1).padStart(2,'0')}. ${c.name}${c.url ? ` (${c.url})` : ''}${c.concern ? ` - Concern: ${c.concern}` : ''}`),
-    '',
-    `Signal priorities: ${(data.priorities || []).join(', ') || 'none picked'}`,
-    `Goal: ${data.goal || 'not given'}`,
-    `Notes: ${data.notes || 'none'}`
-  ].join('\n'));
-  window.location.href = `mailto:hello@rivaldrop.com?subject=${mailSubject}&body=${mailBody}`;
-
-  document.getElementById('form-section').style.display = 'none';
-  document.getElementById('success-section').style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+document.getElementById("intake-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var form = e.target;
+  var status = document.getElementById("form-status");
+  var btn = document.getElementById("submit-btn");
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  var competitors = ["competitor_1", "competitor_2", "competitor_3"]
+    .map(function (id) { return document.getElementById(id).value.trim(); })
+    .filter(Boolean);
+  var payload = {
+    session_id: document.getElementById("session_id").value.trim(),
+    agency_name: document.getElementById("agency_name").value.trim(),
+    agency_website: document.getElementById("agency_website").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    logo_url: document.getElementById("logo_url").value.trim() || null,
+    store_name: document.getElementById("store_name").value.trim(),
+    store_url: document.getElementById("store_url").value.trim(),
+    competitor_urls: competitors,
+    focus: document.getElementById("focus").value.trim() || null
+  };
+  btn.disabled = true;
+  status.textContent = "Verifying your payment with Stripe...";
+  fetch(INTAKE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).then(function (res) {
+    if (res.ok) {
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("success-section").style.display = "";
+      window.scrollTo(0, 0);
+      return;
+    }
+    return res.json().catch(function () { return {}; }).then(function (body) {
+      btn.disabled = false;
+      status.textContent = body && body.error
+        ? "Could not accept the form: " + body.error
+        : "Something went wrong (" + res.status + "). Check the fields and try again, or email hello@rivaldrop.com.";
+    });
+  }).catch(function () {
+    btn.disabled = false;
+    status.textContent = "Network error. Try again in a minute, or email hello@rivaldrop.com with your Stripe receipt.";
+  });
 });
 </script>
-
 </body>
 </html>
