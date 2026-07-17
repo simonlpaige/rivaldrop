@@ -1,0 +1,24 @@
+name: RivalDrop production contract
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Frontend tests
+        run: node --test onboard/app.test.js test/production-contract.test.js
+      - name: Secret and forbidden artifact guard
+        shell: bash
+        run: |
+          test ! -e rivaldrop-webhook-handler.js
+          ! grep -R --exclude-dir=.git --exclude=production-contract.json -E 'sk_(live|test)_[A-Za-z0-9]+|whsec_[A-Za-z0-9]+' .
