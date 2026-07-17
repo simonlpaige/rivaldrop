@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "pipeline": {
     "port": 4871,
     "bind": "127.0.0.1",
@@ -30,8 +30,33 @@
   "smartlead": {
     "activationTargetCampaignId": 3527869,
     "protectedCampaigns": [3527869, 3528435],
-    "requiredPreActivationStatuses": ["PAUSED", "DRAFTED"],
-    "requiredStopCondition": "REPLY_TO_AN_EMAIL"
+    "approvedCampaignName": "RivalDrop Agency Samples - US - Jun 2026",
+    "requiredOperationalStatuses": ["ACTIVE", "PAUSED"],
+    "requiredStopCondition": "REPLY_TO_AN_EMAIL",
+    "approvedSequenceSha256": "47bbb57aa80b3590496f191a10570fb2141c47bb9591c6846444028c704c99e1",
+    "expectedSequenceCount": 3,
+    "growthPolicyRelativeToWorkspace": "modules/groundlayer/factory/brands/rivaldrop/ops/growth-policy.json",
+    "growthSupervisorTaskName": "RivalDrop Growth Supervisor",
+    "maxQueuedWithoutPositiveReply": 25,
+    "requiredSchedule": {
+      "tz": "America/Chicago",
+      "days": [1, 2, 3, 4, 5],
+      "startHour": "09:00",
+      "endHour": "18:00"
+    }
+  },
+  "activation": {
+    "expectedActivated": true,
+    "markerRelativeToPipeline": "data/production-activated.json",
+    "requiredEvidence": [
+      "backend_tests",
+      "frontend_and_contract_tests",
+      "production_verifier",
+      "stripe_test_mode",
+      "stripe_cleanup",
+      "smartlead",
+      "public_health"
+    ]
   },
   "backup": {
     "taskName": "RivalDrop Backup",
@@ -45,6 +70,7 @@
     "rivaldrop.infrastructure.resend.api.key",
     "smartlead.api.key"
   ],
+  "keyRegistryRelativeToWorkspace": "tools/secrets/accessor.js",
   "forbidden": {
     "port": 8383,
     "handler": "rivaldrop-webhook-handler.js",
