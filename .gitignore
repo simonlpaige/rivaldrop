@@ -1,0 +1,11 @@
+_scratch/
+artifacts/
+test-results/
+*.log
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+!*.env.example
+production-activated*.json

@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "pipeline": {
+    "port": 4871,
+    "bind": "127.0.0.1",
+    "moduleRelativeToWorkspace": "modules/groundlayer/factory/brands/rivaldrop/pipeline-agency"
+  },
+  "cloudflare": {
+    "tunnelName": "rivaldrop-intake",
+    "tunnelId": "bbe6832d-34ee-44df-8959-97580bd4290c",
+    "hostname": "intake.rivaldrop.com",
+    "configPath": "C:/Users/simon/.cloudflared/rivaldrop-intake.yml"
+  },
+  "stripe": {
+    "webhookUrl": "https://intake.rivaldrop.com/stripe/webhook",
+    "webhookId": "we_1TsBhRPPkqUj2sPcZWT0o1jG",
+    "enabledEvents": [
+      "charge.dispute.created",
+      "charge.refunded",
+      "checkout.session.async_payment_failed",
+      "checkout.session.completed"
+    ],
+    "productId": "prod_UrndAdWD3xEPe7",
+    "priceId": "price_1Ts42MPPkqUj2sPc3lTzhajO",
+    "paymentLinkId": "plink_1Ts42PPPkqUj2sPcYVxTgX12",
+    "amount": 14900,
+    "currency": "usd",
+    "type": "one_time"
+  },
+  "smartlead": {
+    "activationTargetCampaignId": 3527869,
+    "protectedCampaigns": [3527869, 3528435],
+    "approvedCampaignName": "RivalDrop Agency Samples - US - Jun 2026",
+    "requiredOperationalStatuses": ["ACTIVE", "PAUSED"],
+    "requiredStopCondition": "REPLY_TO_AN_EMAIL",
+    "approvedSequenceSha256": "47bbb57aa80b3590496f191a10570fb2141c47bb9591c6846444028c704c99e1",
+    "expectedSequenceCount": 3,
+    "growthPolicyRelativeToWorkspace": "modules/groundlayer/factory/brands/rivaldrop/ops/growth-policy.json",
+    "growthSupervisorTaskName": "RivalDrop Growth Supervisor",
+    "maxQueuedWithoutPositiveReply": 25,
+    "requiredSchedule": {
+      "tz": "America/Chicago",
+      "days": [1, 2, 3, 4, 5],
+      "startHour": "09:00",
+      "endHour": "18:00"
+    }
+  },
+  "activation": {
+    "expectedActivated": true,
+    "markerRelativeToPipeline": "data/production-activated.json",
+    "requiredEvidence": [
+      "backend_tests",
+      "frontend_and_contract_tests",
+      "production_verifier",
+      "stripe_test_mode",
+      "stripe_cleanup",
+      "smartlead",
+      "public_health"
+    ]
+  },
+  "backup": {
+    "taskName": "RivalDrop Backup",
+    "directory": "C:/Users/simon/RivalDropBackups/pipeline-agency",
+    "maxAgeHours": 25
+  },
+  "requiredKeyNames": [
+    "rivaldrop.infrastructure.stripe.secret.key",
+    "rivaldrop.infrastructure.stripe.webhook.secret",
+    "rivaldrop.infrastructure.stripe.test.restricted.key",
+    "rivaldrop.infrastructure.resend.api.key",
+    "smartlead.api.key"
+  ],
+  "keyRegistryRelativeToWorkspace": "tools/secrets/accessor.js",
+  "forbidden": {
+    "port": 8383,
+    "handler": "rivaldrop-webhook-handler.js",
+    "rivaldropSubscriptionAmounts": [7900, 29900],
+    "duplicateDnsRecords": true,
+    "duplicateStripeWebhooks": true
+  }
+}
