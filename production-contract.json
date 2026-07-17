@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "pipeline": {
+    "port": 4871,
+    "bind": "127.0.0.1",
+    "moduleRelativeToWorkspace": "modules/groundlayer/factory/brands/rivaldrop/pipeline-agency"
+  },
+  "cloudflare": {
+    "tunnelName": "rivaldrop-intake",
+    "tunnelId": "bbe6832d-34ee-44df-8959-97580bd4290c",
+    "hostname": "intake.rivaldrop.com",
+    "configPath": "C:/Users/simon/.cloudflared/rivaldrop-intake.yml"
+  },
+  "stripe": {
+    "webhookUrl": "https://intake.rivaldrop.com/stripe/webhook",
+    "webhookId": "we_1TsBhRPPkqUj2sPcZWT0o1jG",
+    "enabledEvents": [
+      "charge.dispute.created",
+      "charge.refunded",
+      "checkout.session.async_payment_failed",
+      "checkout.session.completed"
+    ],
+    "productId": "prod_UrndAdWD3xEPe7",
+    "priceId": "price_1Ts42MPPkqUj2sPc3lTzhajO",
+    "paymentLinkId": "plink_1Ts42PPPkqUj2sPcYVxTgX12",
+    "amount": 14900,
+    "currency": "usd",
+    "type": "one_time"
+  },
+  "smartlead": {
+    "activationTargetCampaignId": 3527869,
+    "protectedCampaigns": [3527869, 3528435],
+    "requiredPreActivationStatuses": ["PAUSED", "DRAFTED"],
+    "requiredStopCondition": "REPLY_TO_AN_EMAIL"
+  },
+  "backup": {
+    "taskName": "RivalDrop Backup",
+    "directory": "C:/Users/simon/RivalDropBackups/pipeline-agency",
+    "maxAgeHours": 25
+  },
+  "requiredKeyNames": [
+    "rivaldrop.infrastructure.stripe.secret.key",
+    "rivaldrop.infrastructure.stripe.webhook.secret",
+    "rivaldrop.infrastructure.stripe.test.restricted.key",
+    "rivaldrop.infrastructure.resend.api.key",
+    "smartlead.api.key"
+  ],
+  "forbidden": {
+    "port": 8383,
+    "handler": "rivaldrop-webhook-handler.js",
+    "rivaldropSubscriptionAmounts": [7900, 29900],
+    "duplicateDnsRecords": true,
+    "duplicateStripeWebhooks": true
+  }
+}
