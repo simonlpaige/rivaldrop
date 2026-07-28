@@ -1,0 +1,7 @@
+# Normalize line endings. Without this the Windows working tree reports every
+# text file as modified (CRLF vs LF), which produced a ~3,900-line phantom diff
+# and risked burying real changes inside an autonomous deploy commit.
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.svg text eol=lf
