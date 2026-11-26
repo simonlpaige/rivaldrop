@@ -18,8 +18,7 @@ rivalDrop returns a finished PDF brief. The report uses public storefront data o
 
 ## Purchase path
 
-Payment is a Stripe one-time checkout: https://buy.stripe.com/5kQfZj4FD6iNg6W32u7Re0d
-After payment the buyer completes the intake form at https://rivaldrop.com/onboard/
+Orders are taken by email while the self-serve checkout is paused: write to hello@rivaldrop.com with the agency name, the client store URL, and up to three competitor URLs. A payment link is sent back by reply.
 
 ## Important pages
 
